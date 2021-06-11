@@ -1,0 +1,29 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+.dark {
+  .sitemap-btn {
+    &::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      display: block;
+      background: {
+        color: transparent;
+        image: url("../images/icon/icon-sitemap-white.svg");
+        position: center;
+        repeat: no-repeat;
+        size: 70%;
+      }
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 500ms;
+    }
+
+    @include min-width(1025px) {
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+// * 語言版本
+$languageVersion: ch;
+
+// * 引入 RESET CSS
+@import "./_reset.scss";
+
+// * 引入網頁基本樣式的 CSS
+@import "./_basic.scss";
+@include basic($languageVersion);
+
+// * 引入通用區塊的 CSS
+@import "./_header.scss";
+@include header($languageVersion);
+
+@import "./_footer.scss";
+@include footer($languageVersion);
+
+@import "./_menu.scss";
+@include menu($languageVersion);
+
+@import "./_banner.scss";
+@include banner($languageVersion);
+
+@import "./_grid.scss";

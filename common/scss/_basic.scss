@@ -1,0 +1,545 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+@mixin basic($language) {
+  html,
+  body {
+    width: 100%;
+    // height: 100%;
+  }
+
+  body {
+    line-height: 1.6em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    // background-color: $color-black;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+    font-size: 1rem;
+
+    @if $language == en {
+      // 英文版的字體
+      font-family: "PT Sans", sans-serif, Arial;
+      letter-spacing: 0px;
+    } @else if $language == jp {
+      // 日語版的字體
+      font-family: "Yu Gothic", sans-serif, Arial;
+      letter-spacing: 0.5px;
+    } @else {
+      // 中文版的字體
+      font-family: "微軟正黑體", "Microsoft JhengHei", sans-serif, Arial,
+        Helvetica;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  // * ==========================================================================
+  // * 包覆整個網頁的區塊
+  // * ==========================================================================
+
+  #wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  // * ==========================================================================
+  // * 預設標籤樣式
+  // * ==========================================================================
+
+  a {
+    color: $color-black;
+    text-decoration: none;
+
+    > span {
+      color: inherit;
+    }
+
+    @include min-width(1025px) {
+      // &:hover {
+      //     color: $color-primary-2;
+      // }
+
+      // &:focus {
+      //     color: $color-primary-2;
+      //     outline: none;
+      //     box-shadow: $focus-border;
+      // }
+    }
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  strong {
+  }
+
+  i {
+    color: inherit;
+    font-style: italic;
+  }
+
+  span {
+    &.smallth {
+      font-size: 60%;
+      vertical-align: super;
+    }
+  }
+
+  sub {
+    font-size: 92%;
+    color: inherit;
+  }
+
+  sup {
+    color: inherit;
+    vertical-align: super;
+	}
+	
+	// * ==========================================================================
+  // * input 外框設定
+  // * ==========================================================================
+
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="file"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    outline: none;
+    -webkit-box-shadow: 0 0 0 0.13rem  #000;
+    box-shadow: 0 0 0 0.13rem #000;
+    -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
+    transition: -webkit-box-shadow 0.15s ease-in-out;
+    transition: box-shadow 0.15s ease-in-out;
+    transition: box-shadow 0.15s ease-in-out,
+      -webkit-box-shadow 0.15s ease-in-out;
+  }
+
+  // * ==========================================================================
+  // * 無障礙相關按鈕
+  // * ==========================================================================
+
+  // * 跳到主要內容區塊按鈕
+  .firstGoTo-btn {
+    height: 0px;
+    padding: 0px;
+    opacity: 0;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 5000;
+    font-size: 0rem;
+    color: $color-white;
+
+    @if $language == jp {
+      font-family: "Yu Gothic", sans-serif, Arial;
+    }
+
+    @include min-width(1025px) {
+      &:focus {
+        height: auto;
+        display: inline-block;
+        padding: 8px 10px;
+        margin-bottom: 5px;
+        font-size: 1rem;
+        line-height: 1em;
+        text-decoration: none;
+        opacity: 1;
+        float: none;
+        border: 1px $color-primary-1 solid;
+        border-radius: 5px;
+        background-color: $color-primary-1;
+        color: $color-white;
+      }
+    }
+  }
+
+  // * 無障礙定位點按鈕
+  .acc {
+    display: none;
+    text-decoration: none;
+
+    @include min-width(1025px) {
+      display: inline;
+      z-index: 1;
+    }
+
+    // 無障礙上方選單定位點（U）
+    @at-root #header & {
+      color: $color-brown-1;
+    }
+
+    // 無障礙中方選單定位點（L）
+    @at-root #menu & {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: $color-brown-1;
+      opacity: 0;
+      z-index: -9999;
+
+      @include min-width(1025px) {
+        &:focus {
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+    }
+
+    // 無障礙中間主要內容顯示區（C）
+    @at-root #main & {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: $color-black;
+    }
+
+    // 無障礙下方選單連結區（B）
+    @at-root #footer & {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: $color-brown-1;
+    }
+  }
+
+  // * 跳過工具區塊
+  .skiptoolbar {
+    height: 0px;
+    padding: 0px;
+    opacity: 0;
+    position: absolute;
+    z-index: -9999;
+    color: $color-black;
+
+    @include min-width(1025px) {
+      &:focus {
+        width: auto;
+        height: auto;
+        position: static;
+        opacity: 1;
+        border: 1px $color-black solid;
+        border-radius: 5px;
+        background-color: $color-black;
+        color: $color-white;
+        padding: 8px 10px;
+        margin-bottom: 5px;
+        font-size: 1rem;
+        line-height: 1.6em;
+        text-decoration: none;
+        z-index: 0;
+      }
+    }
+  }
+
+  // * 無障礙標章
+  .acc-mark {
+    width: 90px;
+    height: 30px;
+    position: relative;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+    vertical-align: top;
+
+    > a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: url("../images/AA.jpg") no-repeat center/contain;
+      color: $color-white;
+
+      @include hidetext;
+    }
+  }
+
+  .gov-mark {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-top: 1rem;
+    display: inline-block;
+    vertical-align: top;
+
+    > a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: url("../images/egov.png") no-repeat center/contain;
+      color: $color-white;
+
+      @include hidetext;
+    }
+  }
+
+  // * noscript 說明區塊
+  .noscript-description {
+    padding: 10px;
+    background-color: $color-white;
+
+    p:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  // * ==========================================================================
+  // * Lazyload
+  // * ==========================================================================
+
+  img.lazyload {
+    opacity: 0;
+    font-size: 0rem;
+    transition: 0.6s opacity;
+
+    @at-root .no-js & {
+      display: none !important;
+    }
+  }
+
+  img.lazyloading {
+    opacity: 1;
+    font-size: 0rem;
+    background: {
+      color: #f7f7f7;
+      image: url("../images/loader.gif");
+      repeat: no-repeat;
+      position: center;
+    }
+    transition: 0.6s opacity;
+    object-fit: scale-down !important;
+  }
+
+  img.lazyloaded {
+    opacity: 1;
+    font-size: 1rem;
+    background-color: transparent;
+    background-image: none;
+    transition: 0.6s opacity;
+  }
+
+  // * ==========================================================================
+  // * Heading 類型標籤設定
+  // * ==========================================================================
+
+  h1,
+  .h1 {
+    display: block;
+    font-size: 2rem;
+    line-height: 1.4em;
+
+    @if $language == en {
+      letter-spacing: 0px;
+    } @else {
+      letter-spacing: 1px;
+    }
+
+    @include min-width(768px) {
+      // font-size: 3rem;
+    }
+  }
+
+  h2,
+  .h2 {
+    display: block;
+    font-size: 2rem;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+    font-weight: bold;
+    @if $language == en {
+      letter-spacing: 0px;
+    } @else {
+      letter-spacing: 1px;
+    }
+  }
+
+  h3,
+  .h3 {
+    display: block;
+    font-size: 1.3rem;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+
+    @if $language == en {
+      letter-spacing: 0px;
+    } @else {
+      letter-spacing: 1px;
+    }
+
+    @include min-width(768px) {
+      // font-size: 2rem;
+    }
+
+    @include min-width(1025px) {
+      // margin-top: 5rem;
+    }
+  }
+
+  h4,
+  .h4 {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+
+    @if $language == en {
+      letter-spacing: 0px;
+    } @else {
+      letter-spacing: 1px;
+    }
+
+    @include min-width(1025px) {
+      // margin-top: 3rem;
+    }
+  }
+
+  // * ==========================================================================
+  // * 右下角的浮動按鈕
+  // * ==========================================================================
+
+  .floatbtn {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    z-index: 300;
+
+    @include min-width(480px + 1px) {
+      bottom: 200px;
+      right: 30px;
+    }
+
+    .top-btn {
+      width: 50px;
+      height: 50px;
+      display: block;
+      border-radius: 100%;
+      color: $color-white;
+      background-color: $color-primary-1;
+      line-height: 50px;
+
+      text-align: center;
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 1s;
+
+      @include min-width(480px + 1px) {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+      }
+
+      @include min-width(1025px) {
+        &:hover,
+        &:focus {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+
+
+  // * ==========================================================================
+  // * 下拉選單
+  // * ==========================================================================
+
+  .dropdown {
+    display: block;
+    position: relative;
+  }
+
+  // * 下拉選單的開關按鈕
+  .dropdown-btn {
+    display: block;
+    padding: 8px 10px;
+    line-height: 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: $color-black;
+    position: relative;
+    z-index: 3;
+
+    @include no-js {
+      display: none;
+    }
+
+    &.icon-google::after {
+      content: "";
+      width: 0;
+      height: 0;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 5px;
+      border-style: solid;
+      border-width: 7.5px 7.5px 0 7.5px;
+      border-color: #161211 transparent transparent transparent;
+    }
+  }
+
+  // * 下拉選單的列表
+  .dropdown-list {
+    width: 100%;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.308);
+    border: 1px $color-gray-white solid;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+
+    a {
+      display: block;
+      border-bottom: 1px solid $color-white;
+      text-decoration: none;
+      color: $color-white !important;
+      padding: 5px 10px;
+      transition: 0.2s;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      @include min-width(map-get($desktop, sm)) {
+        &:hover,
+        &:focus {
+          background-color: $color-black;
+          color: $color-white;
+        }
+      }
+    }
+
+    @include no-js {
+      display: block;
+      margin-bottom: 10px;
+      position: static;
+      border: none;
+
+      a {
+        display: inline-block;
+        border: 1px $color-gray-white solid;
+        border-radius: 5px;
+      }
+    }
+  }

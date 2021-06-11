@@ -1,0 +1,265 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+@mixin menu($language) {
+  // * ==========================================================================
+  // * 手機板會出現的 MENU 漢堡選單按鈕
+  // * ==========================================================================
+
+  .menu-mobile-btn {
+    width: $mainHeader-height;
+    height: $mainHeader-height;
+    display: block;
+    background: url("../images/icon/menu.svg") no-repeat center/70%;
+    color: $color-black;
+
+    @include hidetext;
+
+    @include min-width(1025px) {
+      display: none;
+    }
+  }
+
+  // * ==========================================================================
+  // * MENU 選單
+  // * ==========================================================================
+
+  // MENU 選單裡面的連結（電腦版）
+  .menu-box {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    padding-top: 72px;
+    background-color: $color-white;
+
+    @include min-width(1025px) {
+      display: none;
+    }
+  }
+
+  .menu-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .menu-content-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    > li {
+      flex: 1;
+      color: #222;
+    }
+  }
+}
+
+//收合開始
+.acnav {
+  width: 100%;
+
+  .has-children {
+    position: relative;
+  }
+
+  // font awesome icon 'fa-plus'
+  .has-children > &__label-m::before {
+    content: "";
+    width: 2px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    right: 38px;
+    background-color: #656d78;
+    text-rendering: auto;
+    margin-right: 0;
+    margin-left: auto;
+    // background-image: url("../images/icon/icon-add.svg");
+
+    transition: transform 0.3s;
+  }
+
+  .has-children > &__label-m::after {
+    content: "";
+    width: 20px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    right: 29px;
+    background-color: #656d78;
+    text-rendering: auto;
+    margin-right: 0;
+    margin-left: auto;
+    // background-image: url("../images/icon/icon-add.svg");
+
+    transition: transform 0.3s;
+  }
+
+  // animate icon when list is opened
+  .has-children.is-open > &__label-m::before {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+
+  .has-children.is-open > &__label-m::after {
+    transform: rotate(360deg);
+  }
+
+  &__label-m {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    padding: 1em;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.125rem;
+    cursor: pointer;
+    color: $color-black;
+    transition: color 0.25s ease-in, background-color 0.25s ease-in;
+    &:focus,
+    &:hover {
+      color: darken($color-black, 10%);
+    }
+  }
+
+  &__label-a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    padding: 1em;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.125rem;
+    cursor: pointer;
+    color: $color-black;
+    transition: color 0.25s ease-in, background-color 0.25s ease-in;
+    &:focus,
+    &:hover {
+      color: darken($color-black, 10%);
+    }
+  }
+}
+
+//收合結束
+.acnav__item-list {
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #cccccc;
+
+  &:last-child {
+    border: none;
+  }
+
+  > a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-weight: bold;
+    padding: 1.125rem 1.125rem 1.125rem 3rem;
+  }
+}
+
+//選單開合隱藏scroll
+.add {
+  overflow: hidden;
+}
+
+//guid-area 網站導覽 整合查詢 故宮首頁
+
+.guid-area {
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  a {
+    display: block;
+    width: 33.3333%;
+    height: 100%;
+    text-align: center;
+  }
+
+  .guid-name {
+    margin-top: 1rem;
+    padding: 0 1rem;
+
+  }
+
+  .ac-guid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 6.25rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 80px;
+      height: 80px;
+      border: 0.0625rem solid $color-gray-1;
+      border-radius: 50%;
+    }
+  }
+
+  .ac-sitemap {
+    &::before {
+      width: 40px;
+      height: 40px;
+      background-image: url("../images/icon/icon-sitemap-gold.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+
+  .ac-search {
+    &::before {
+      width: 40px;
+      height: 40px;
+      background-image: url("../images/icon/icon-search-gold.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      
+    }
+  }
+
+
+
+  .ac-npm {
+    &::before {
+      width: 40px;
+      height: 40px;
+      background-image: url("../images/icon/global-icon-m.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
+}

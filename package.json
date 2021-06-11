@@ -1,0 +1,33 @@
+{
+  "name": "m-theme",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "tailwindcss build common/css/tailwinddev.css -o common/css/tailwind.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.dc1.ec-media.com.tw:3000/NPM/M-Theme.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-extend": "^1.1.6",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.2.8",
+    "tailwindcss": "^2.0.4"
+  },
+  "dependencies": {
+    "del": "^5.1.0"
+  }
+}

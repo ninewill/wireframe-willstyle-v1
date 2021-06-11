@@ -1,0 +1,248 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+@mixin footer($language) {
+  // * ==========================================================================
+  // * FOOTER 區塊
+  // * ==========================================================================
+
+  #footer {
+    color: $color-black;
+		border-top: 1px solid $color-gray-1;
+    position: relative;
+  }
+
+  // * ==========================================================================
+  // * 贊助廠商
+  // * ==========================================================================
+
+  .sponsors {
+    display: none;
+    padding: 30px;
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    @include min-width(1025px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  // * ==========================================================================
+  // * 主要 FOOTER 區塊
+  // * ==========================================================================
+
+  .mainfooter {
+    position: relative;
+    padding: 2rem 0;
+    color: $color-white;
+
+    @include min-width(1025px) {
+      max-width: 1025px;
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px rgba($color-white, 0.2) solid;
+      padding: 1rem;
+    }
+
+    @include min-width(1200px) {
+      max-width: 1300px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6em;
+      margin-bottom: 0px;
+      color: $color-black;
+
+      @include min-width(767px) {
+        font-size: 0.8rem;
+      }
+
+      &:last-child {
+        margin-top: 1rem;
+      }
+    }
+
+    .side-left {
+      color: $color-white;
+
+      @include min-width(1025px) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .footer-logo {
+      width: 235px;
+      height: 50px;
+      margin: 0 auto;
+      background-image: url("../images/logo-footer.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include min-width(1025px) {
+        margin-right: 2rem;
+      }
+    }
+
+    .copyright {
+      width: 100%;
+      margin:  0 auto;
+      margin-top: 1rem;
+      padding: 0 1rem;
+
+      @include min-width(375px) {
+        width: 350px;
+        padding: 0;
+      }
+
+      @include min-width(1025px) {
+        width: auto;
+        margin-top: 0;
+      }
+    }
+
+    .footer-info {
+    }
+
+    .footer-line-tag {
+      color: $color-red-2;
+      margin: 0 0.5rem;
+    }
+
+    .footer-tag {
+      margin-right: 1rem;
+    }
+
+    .footer-info-tag{
+      display: none;
+
+      @include min-width(1025px) {
+        display: block;
+      }
+    }
+
+    .side-right {
+      margin-top: 1rem;
+      border-top: 1px rgba($color-white, 0.2) solid;
+
+      @include min-width(1025px) {
+        margin-top: 0;
+        border-top: none;
+      }
+
+      > ul {
+        display: flex;
+
+        @include max-width(1025px) {
+          justify-content: center;
+        }
+
+        > li {
+					margin: 1rem;
+					border-radius: 50%;
+          background-color: $color-gray-2;
+          transition: .2s;
+
+          @include min-width(1025px) {
+            margin-left: 1rem;
+
+            &:hover{
+              background-color: $color-gray-7;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-icon {
+			width: 60px;
+      height: 60px;
+			display: block;
+			background-position: center;
+      background-repeat: no-repeat;
+      @include hidetext;
+      
+      @include min-width(1025px) {
+        width: 40px;
+        height: 40px;
+      }
+		}
+
+		.fb{
+			background-image: url("../images/icon/icon-fb.svg");
+		}
+
+		.yt{
+			background-image: url("../images/icon/icon-yt.svg");
+		}
+
+		.ig{
+			background-image: url("../images/icon/icon-ig.svg");
+		}
+		
+
+  }
+
+  .footer-btn {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+
+    @include min-width(1025px) {
+      &:hover,
+      &:focus {
+        > span::before {
+          transform: translateY(-5px);
+        }
+      }
+    }
+
+    > span {
+      display: block;
+      line-height: 1.2em;
+      font-size: 0.95rem;
+      text-align: center;
+      color: $color-white;
+
+      &::before {
+        content: "";
+        width: 40%;
+        height: 0px;
+        padding-bottom: 40%;
+        display: block;
+        margin: 10px auto;
+        border-radius: 100%;
+        background: {
+          position: center;
+          repeat: no-repeat;
+          size: contain;
+        }
+        transition: transform 0.3s;
+      }
+    }
+
+    &.icon-position > span::before {
+      background-image: url("../images/icon/footerInfo_position.svg");
+    }
+
+    &.icon-info > span::before {
+      background-image: url("../images/icon/footerInfo_info.svg");
+    }
+
+    &.icon-member > span::before {
+      background-image: url("../images/icon/footerInfo_member.svg");
+    }
+
+    &.icon-facebook > span::before {
+      background-image: url("../images/icon/footerInfo_facebook.svg");
+    }
+  }
+}

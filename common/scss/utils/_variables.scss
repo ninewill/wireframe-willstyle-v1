@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+// * ==========================================================================
+// * 顏色
+// * ==========================================================================
+
+// 預設的文字顏色
+$color-default: #313131;
+
+$color-gray-white: #E4E4E4;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-orange: #f87147;
+$color-yellow: #FFF568;
+
+// 主要配色
+$color-primary-1: #AB8F4E;
+$color-primary-2: #1a1f49;
+$color-primary-3: #e7e4e4;
+
+//其他配色
+$color-gray-0: #EFEFEF;
+$color-gray-1: #CCCCCC;
+$color-gray-2: #b4ad9d;
+$color-gray-3: #707070;
+$color-gray-4: #676767;
+$color-gray-5: #7d796e;
+$color-gray-6: #B5B5B5;
+$color-gray-7: #787469;
+
+$color-red-1: #D63B3B;
+$color-red-2: #AA3333;
+$color-brown-0:#C8AB69; 
+$color-brown-1: #8A6B26;
+
+
+// FOCUS 時的外框
+$focus-border: 0 0 0 0.2rem rgba($color-orange, 0.5);
+$focus-border-inset: inset 0 0 0 0.2rem rgba($color-orange, 0.8);
+
+// 行動版 HEADER BAR 的高度
+$mainHeader-height: 50px;
+
+// 電腦版 MENU 的高度
+$menu-height: 585px;
+
+
+// * ==========================================================================
+// * RWD 尺寸斷點
+// * ==========================================================================
+
+// 電腦版
+$desktop: (
+    xl: 1600px,
+    lg: 1440px,
+    md: 1280px,
+    sm: 1025px
+);
+
+// 平版
+$tablet: (
+    lg: 1024px,
+    md: 960px,
+    sm: 768px
+);
+
+// 手機版
+$phone: (
+    lg: 767px,
+    md: 480px + 1px,
+    sm: 400px + 1px,
+    xs: 370px + 1px
+);
+
+// * ==========================================================================
+// * 文字字級大小設定
+// * ==========================================================================
+
+$fontsize: (
+    1: 2rem,
+    2: 1.75rem,
+    3: 1.5rem,
+    4: 1.25rem,
+    5: 1.125rem,
+    6: 1rem,
+    7: 0.9rem,
+    8: 0.8rem,
+);

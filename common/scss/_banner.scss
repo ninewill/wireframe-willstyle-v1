@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+@mixin banner($language) {
+
+    // * ==========================================================================
+    // * 網頁上方主視覺大 Banner
+    // * ==========================================================================
+
+    .banner {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 25%;
+        margin-bottom: 0px;
+        position: relative;
+        background: url('../images/img-01.jpg') no-repeat center/cover;
+
+        @include min-width(769px) {
+            padding-top: 72px;
+            padding-bottom: 18.229%;
+            background-image: url('../images/img-01.jpg');
+        }
+
+        @include min-width(1025px) {
+            // height: calc(100% - #{$menu-height});
+            // height: 350px;
+            // padding-bottom: 18.229%;
+        }
+
+        // 針對 1280 x 1024 寬度的螢幕尺寸
+        @media screen and (min-width: 1200px) and (min-height: 900px) and (max-width: 1366px) {
+            
+        }
+
+        // 針對 iPad Pro (1024 x 1366) 的螢幕尺寸
+        @media screen and (min-width: 1024px) and (min-height: 1025px) and (max-height: 1366px) {
+            
+        }
+    }
+}

@@ -1,0 +1,286 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+@mixin header($language) {
+  // * ==========================================================================
+  // * HEADER 區塊
+  // * ==========================================================================
+
+  #header {
+    width: 100%;
+    position: relative;
+    padding-top: 66px;
+
+    @include min-width(767px) {
+      padding-top: 72px;
+    }
+
+    @include min-width(1025px) {
+      padding-top: 0;
+    }
+  }
+
+  .mainheader {
+    width: 100%;
+    // height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: $color-white;
+    box-shadow: 0px 5px 7px rgba($color-black, 0.3);
+
+    @include min-width(1025px) {
+      position: static;
+      height: auto;
+      padding: 20px 40px;
+      background-color: $color-white;
+      box-shadow: none;
+    }
+  }
+
+  // * ==========================================================================
+  // * 故宮 LOGO
+  // * ==========================================================================
+
+  .logo {
+    width: 250px;
+    height: 40px;
+    display: block;
+    margin-left: 5px;
+    position: relative;
+    margin-bottom: 0;
+
+    > a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      color: $color-black;
+      background: url("../images/logo.svg") no-repeat center/contain;
+
+      @include hidetext;
+    }
+
+    @include min-width(767px) {
+      width: 260px;
+      height: 56px;
+      margin-left: 0px;
+    }
+
+    @include min-width(1025px) {
+      width: 300px;
+      height: 70px;
+      margin-left: 0px;
+    }
+  }
+
+  // * ==========================================================================
+  // * 右上方連結區塊
+  // * ==========================================================================
+
+  .topnav {
+    display: none;
+
+    @include min-width(1025px) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .topnav-item-h{
+    margin-left: 30px;
+  }
+
+  .topnav-item {
+    position: relative;
+  }
+
+  // * 按鈕的大小
+  $btn-size: 35px;
+
+  // * ==========================================================================
+  // * 網站導覽
+  // * ==========================================================================
+
+  .sitemap-btn {
+		display: flex;
+		align-items: center;
+    color: $color-black;
+
+    &::before {
+			content: '';
+			width: 40px;
+			height: 40px;
+			display: block;
+      background: {
+        color: transparent;
+        image: url("../images/icon/icon-sitemap.svg");
+        position: center;
+        repeat: no-repeat;
+        size: 70%;
+      }
+    }
+
+    @include min-width(1025px) {
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+
+  // * ==========================================================================
+  // * 分享
+  // * ==========================================================================
+
+  .search {
+    position: relative;
+
+    @at-root .no-js & {
+      display: none;
+    }
+  }
+
+  .search-btn {
+		display: flex;
+		align-items: center;
+    color: $color-black;
+
+		&::before {
+			content: '';
+			width: 40px;
+			height: 40px;
+			display: block;
+			background: url("../images/icon/icon-search.svg") no-repeat center/70%;
+		}
+  }
+
+  .search-list {
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .share-list{
+    position: absolute;
+    z-index: 200;
+
+    
+    > li {
+      padding-top: 5px;
+    }
+
+    a {
+      width: $btn-size;
+      height: $btn-size;
+      display: block;
+      border-radius: 100%;
+      background: {
+        position: center;
+        repeat: no-repeat;
+        size: contain;
+      }
+
+      @include hidetext;
+
+      &.icon-facebook {
+        background-color: #3b5998;
+        background-image: url("../images/icon/facebook.svg");
+      }
+
+      &.icon-line {
+        background-color: #2cbf13;
+        background-image: url("../images/icon/line.svg");
+      }
+
+      &.icon-twitter {
+        background-color: #00aced;
+        background-image: url("../images/icon/twitter.svg");
+      }
+
+      &.icon-plurk {
+        background-color: #c6602b;
+        background-image: url("../images/icon/plurk.svg");
+      }
+    }
+  }
+
+	.back-home{
+		height: 40px;
+	}
+	
+	.back-home-btn{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+  // * ==========================================================================
+  // * 語言選擇
+  // * ==========================================================================
+
+  .language {
+    border: 3px $color-primary-1 solid;
+    overflow: hidden;
+
+    > li {
+      float: left;
+    }
+  }
+
+  .language-btn {
+    // Main Header 裡面的語言選擇按鈕
+    @at-root .mainheader & {
+      display: block;
+      line-height: 1;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      color: $color-white;
+      background-color: $color-white;
+			transition: all 0.2s ease-in-out;
+			outline: none;
+			border: 1px solid $color-gray-1;
+
+      &.current {
+        // background-color: $color-primary-1;
+      }
+
+      @include min-width(1025px) {
+        &:hover,
+        &:focus {
+          // background-color: $color-primary-1;
+        }
+
+        &:focus {
+          box-shadow: $focus-border-inset;
+        }
+      }
+		}
+		
+		>span{
+			display: flex;
+			align-items: center;
+			padding: 0.5rem;
+
+			&:after {
+				content: "";
+				width: 0;
+				height: 0;
+				margin-left: 2rem;
+				display: block;
+				border-style: solid;
+				border-width: 8px 6px 0 6px;
+				border-color: $color-gray-3 transparent transparent transparent;
+			}
+		}
+  }
+}

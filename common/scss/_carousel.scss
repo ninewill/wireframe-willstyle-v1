@@ -1,0 +1,109 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+
+
+    // * ==========================================================================
+    // * 輪播
+    // * ==========================================================================
+
+    .carousel {
+        .swiper-wrapper {
+            @include exclude-content {
+                list-style: none;
+                padding-left: 0px;
+                margin-bottom: 0px;
+            }
+
+            @include max-width(1024px) {
+                display: block;
+                height: auto;
+            }
+
+            @at-root .no-js & {
+                display: block;
+            }
+        }
+
+        .swiper-pagination {
+            position: relative;
+        }
+
+        @include min-width(1025px) {
+            .exhibit {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+    }
+
+    .carousel-btn {
+        display: none;
+
+        @include min-width(1025px) {
+            width: 50px;
+            height: 50px;
+            display: block;
+            background: {
+                position: center;
+                repeat: no-repeat;
+                size: contain;
+            }
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            color: $color-black;
+        
+            @include hidetext;
+
+            @at-root .no-js & {
+                display: none;
+            }
+
+            &:focus {
+                box-shadow: $focus-border-inset;
+            }
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0.4;
+            cursor: no-drop;
+        }
+    }
+
+    .carousel-btn-next {
+        right: 0px;
+        background-image: url('../images/icon/arrow-right.svg');
+    }
+
+    .carousel-btn-prev {
+        left: 0px;
+        background-image: url('../images/icon/arrow-left.svg');
+    }
+
+    .carousel-pagination {
+        display: none;
+
+        @include min-width(1025px) {
+            display: block;
+        }
+
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            opacity: 1;
+            outline: none;
+            background-color: $color-default;
+
+            @include min-width(1025px) {
+                &:focus {
+                    box-shadow: $focus-border;
+                }
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: $color-primary-1;
+        }
+    }

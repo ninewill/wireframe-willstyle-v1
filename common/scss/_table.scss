@@ -1,0 +1,155 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+
+
+    // * ==========================================================================
+    // * 表格
+    // * ==========================================================================
+
+    table {
+        width: 100%;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+
+        @include max-width(1024px) {
+            font-size: 1.125rem;
+        }
+
+        @include max-width(767px) {
+            font-size: 1rem;
+        }
+
+        tr {
+            th, td {
+                padding: 15px 10px;
+                vertical-align: middle;
+
+                @include min-width(768px) {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+
+                @include max-width(767px) {
+                    font-size: 1rem;
+                    line-height: 1.4em;
+                }
+
+                &:nth-child(3) {
+                    text-align: left;
+                    // @if $language == en {
+                    //     text-align: center;
+                    // } @else {
+                        
+                    // }
+                }
+
+                &:nth-child(5) {
+                    display: none;
+
+                    @include min-width(768px) {
+                        display: table-cell;
+                    }
+                }
+
+                // @if $language == en {
+                //     width: 33%;
+                // } 
+            }
+
+            th {
+                background-color: $color-primary-2;
+                color: $color-white;
+                vertical-align: top;
+
+                @include max-width(767px) {
+                    word-break: keep-all;
+                }
+            }
+        }
+
+        tbody {
+            text-align: center;
+
+            tr:nth-child(even) {
+                background-color: $color-white;
+            }
+        }
+    }
+
+    /*
+    * ==========================================================================
+    * 表格（Footable）
+    * ==========================================================================
+    */
+
+    .footable {
+        tr {
+            th, td {
+                &:nth-child(1) {
+                    text-align: left;
+                }
+
+                &:nth-child(3) {
+                    text-align: center;
+                }
+            }
+        }
+
+        .footable-row-detail-name {
+            padding-bottom: 10px;
+        }
+
+        .footable-row-detail-value {
+            padding-bottom: 10px;
+        }
+    }
+
+    /*
+    * ==========================================================================
+    * 表格（Swipetable，手機版有左右滾動條的那種）
+    * ==========================================================================
+    */
+
+    .swipeTable {
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        white-space: nowrap;
+    }
+    
+    .swipeTable__outerwrap {
+        width: 100%;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .swipeTable__innerwrap {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    
+    .swipeTable__notice {
+        display: none;
+        font-size: 1rem;
+        line-height: 1.6em;
+        padding-bottom: 10px;
+        margin-bottom: 0px;
+    
+        &.is-open {
+            display: block;
+        }
+        
+        &::before {
+            content: '';
+            width: 1.6em;
+            height: 1.6em;
+            margin-right: 3px;
+            display: inline-block;
+            vertical-align: top;
+            background: url('../images/icon/swipe.svg') no-repeat center/80%;
+        }
+    }
+
+
