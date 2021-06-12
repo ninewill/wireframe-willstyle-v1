@@ -101,7 +101,7 @@
       transition: 0.2s;
 
       &:hover {
-        background-color: $color-red-1;
+        background-color: $color-black;
 
         a {
           color: $color-white;
@@ -123,7 +123,7 @@
 
 .open {
   color: $color-white;
-  background-color: $color-red-1;
+  background-color: $color-black;
 }
 
 .navbar {
