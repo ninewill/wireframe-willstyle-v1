@@ -651,6 +651,17 @@ $(function () {
 
   ctrlCarousel(screenWidth);
 
+  var swiper = new Swiper(".mySwiper", {
+    effect: "fade",
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+
   /*
    * ==========================================================================
    * 無障礙跳過此子選單列按鈕

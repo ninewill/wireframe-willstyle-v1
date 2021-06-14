@@ -44,7 +44,7 @@
   }
 
   // * ==========================================================================
-  // * 故宮 LOGO
+  // *  LOGO
   // * ==========================================================================
 
   .logo {
@@ -63,7 +63,7 @@
       top: 0px;
       left: 0px;
       color: $color-black;
-      background: url("../images/logo.svg") no-repeat center/contain;
+      background: url("../images/wireframe-logo-black.png") no-repeat center/contain;
 
       @include hidetext;
     }

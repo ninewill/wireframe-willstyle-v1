@@ -1,16 +1,19 @@
 @charset "UTF-8";
-@import "./utils/_utils.scss";
+@import './utils/_utils.scss';
 
 .dark {
+  // * LOGO
+  .logo > a {
+    background: url(../images/wireframe-logo-white.png) no-repeat center/contain;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+  }
+  // * 網站導覽
   .sitemap-btn {
     &::before {
-      content: "";
-      width: 40px;
-      height: 40px;
-      display: block;
       background: {
         color: transparent;
-        image: url("../images/icon/icon-sitemap-white.svg");
+        image: url('../images/icon/icon-sitemap-white.svg');
         position: center;
         repeat: no-repeat;
         size: 70%;
@@ -25,5 +28,51 @@
         background-color: transparent;
       }
     }
+  }
+
+  // * 下拉選單的開關按鈕
+  .dropdown-btn {
+    &.icon-google::after {
+      border-color: $color-white transparent transparent transparent;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 500ms;
+    }
+  }
+
+  // * nav
+  .nav {
+    @include min-width(1025px) {
+      border-top: 1px solid $color-white;
+      border-bottom: 1px solid $color-white;
+    }
+    > ul {
+      > li {
+        > a {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  // * Footer
+  .footer-logo {
+    background-image: url('../images/wireframe-logo-white.png');
+  }
+
+  .footer-info{
+    >p{
+      color: $color-white;
+      >span{
+        color: $color-white;
+      }
+    }
+  }
+
+  // * TOP
+  .top-btn {
+    color: $color-black;
+    background-color: $color-white;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
   }
 }

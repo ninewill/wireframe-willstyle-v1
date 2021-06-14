@@ -24,7 +24,7 @@
 
 .wrap {
   width: calc(100% - 40px);
-  max-width: 1300px;
+  max-width: 1440px;
   margin: auto;
 }
 
@@ -87,8 +87,8 @@
   @include min-width(1025px) {
     width: 100%;
     display: block;
-    border-top: 1px solid $color-gray-1;
-    border-bottom: 1px solid $color-gray-1;
+    border-top: 1px solid $color-black;
+    border-bottom: 1px solid $color-black;
   }
 
   > ul {
