@@ -25,7 +25,7 @@
       display: block;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       display: flex;
       justify-content: center;
     }
@@ -40,7 +40,7 @@
     padding: 2rem 0;
     color: $color-white;
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       max-width: 1025px;
       margin: 0 auto;
       padding: 0;
@@ -50,8 +50,12 @@
       padding: 1rem;
     }
 
-    @include min-width(map-get($desktop, md)) {
+    @include min-width(map-get($desktop, lg)) {
       max-width: 1440px;
+    }
+  
+    @include min-width(map-get($desktop, xl)) {
+      max-width: 1600px;
     }
 
     p {
@@ -72,7 +76,7 @@
     .side-left {
       color: $color-white;
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         display: flex;
         align-items: center;
       }
@@ -87,7 +91,7 @@
       background-repeat: no-repeat;
       background-size: contain;
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         margin-right: 2rem;
       }
     }
@@ -103,7 +107,7 @@
         padding: 0;
       }
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         width: auto;
         margin-top: 0;
       }
@@ -124,7 +128,7 @@
     .footer-info-tag{
       display: none;
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         display: block;
       }
     }
@@ -133,7 +137,7 @@
       margin-top: 1rem;
       border-top: 1px rgba($color-white, 0.2) solid;
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         margin-top: 0;
         border-top: none;
       }
@@ -148,14 +152,16 @@
         > li {
 					margin: 1rem;
 					border-radius: 50%;
-          background-color: $color-gray-2;
+          background-color: $color-black;
+          opacity: 0.5;
           transition: .2s;
 
-          @include min-width(1025px) {
+          @include min-width(map-get($desktop, sm)) {
             margin-left: 1rem;
 
             &:hover{
-              background-color: $color-gray-7;
+              background-color: $color-black;
+              opacity: 1;
             }
           }
         }
@@ -170,7 +176,7 @@
       background-repeat: no-repeat;
       @include hidetext;
       
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         width: 40px;
         height: 40px;
       }
@@ -197,7 +203,7 @@
     padding: 10px;
     text-decoration: none;
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       &:hover,
       &:focus {
         > span::before {

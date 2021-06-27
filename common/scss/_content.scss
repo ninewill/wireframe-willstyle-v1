@@ -24,8 +24,16 @@
 
 .wrap {
   width: calc(100% - 40px);
-  max-width: 1440px;
+  max-width: 100%;
   margin: auto;
+
+  @include min-width(map-get($desktop, lg)) {
+    max-width: 1440px;
+  }
+
+  @include min-width(map-get($desktop, xl)) {
+    max-width: 1600px;
+  }
 }
 
 // * ==========================================================================
@@ -84,7 +92,7 @@
 .nav {
   display: none;
 
-  @include min-width(1025px) {
+  @include min-width(map-get($desktop, sm)) {
     width: 100%;
     display: block;
     border-top: 1px solid $color-black;
@@ -129,7 +137,7 @@
 .navbar {
   display: none;
 
-  @include min-width(1025px) {
+  @include min-width(map-get($desktop, sm)) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -146,7 +154,7 @@
 .navbar-wrap .features {
   display: none;
 
-  @include min-width(1025px) {
+  @include min-width(map-get($desktop, sm)) {
     display: block;
   }
 }
@@ -545,7 +553,7 @@
     }
 
     &:hover {
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         color: $color-white;
 
         &:after,

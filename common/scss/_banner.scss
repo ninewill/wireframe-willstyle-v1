@@ -39,7 +39,7 @@
       // background-image: url('../images/img-01.png');
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       // height: calc(100% - #{$menu-height});
       // height: 350px;
       // padding-bottom: 18.229%;

@@ -15,7 +15,7 @@
       padding-top: 72px;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       padding-top: 0;
     }
   }
@@ -34,7 +34,7 @@
     background-color: $color-white;
     box-shadow: 0px 5px 7px rgba($color-black, 0.3);
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       position: static;
       height: auto;
       padding: 20px 40px;
@@ -74,7 +74,7 @@
       margin-left: 0px;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       width: 300px;
       height: 70px;
       margin-left: 0px;
@@ -88,7 +88,7 @@
   .topnav {
     display: none;
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       display: flex;
       align-items: center;
     }
@@ -127,7 +127,7 @@
       }
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       &:hover,
       &:focus {
         background-color: transparent;
@@ -254,7 +254,7 @@
         // background-color: $color-primary-1;
       }
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         &:hover,
         &:focus {
           // background-color: $color-primary-1;

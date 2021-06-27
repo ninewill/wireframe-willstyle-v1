@@ -66,7 +66,7 @@
       color: inherit;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       // &:hover {
       //     color: $color-primary-2;
       // }
@@ -149,7 +149,7 @@
       font-family: "Yu Gothic", sans-serif, Arial;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       &:focus {
         height: auto;
         display: inline-block;
@@ -173,7 +173,7 @@
     display: none;
     text-decoration: none;
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       display: inline;
       z-index: 1;
     }
@@ -192,7 +192,7 @@
       opacity: 0;
       z-index: -9999;
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         &:focus {
           opacity: 1;
           z-index: 1;
@@ -226,7 +226,7 @@
     z-index: -9999;
     color: $color-black;
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       &:focus {
         width: auto;
         height: auto;
@@ -390,7 +390,7 @@
       // font-size: 2rem;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       // margin-top: 5rem;
     }
   }
@@ -408,7 +408,7 @@
       letter-spacing: 1px;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       // margin-top: 3rem;
     }
   }
@@ -449,7 +449,7 @@
         line-height: 60px;
       }
 
-      @include min-width(1025px) {
+      @include min-width(map-get($desktop, sm)) {
         &:hover,
         &:focus {
           opacity: 1;

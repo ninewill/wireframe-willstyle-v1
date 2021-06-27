@@ -22,7 +22,7 @@
       transition-duration: 500ms;
     }
 
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       &:hover,
       &:focus {
         background-color: transparent;
@@ -41,7 +41,7 @@
 
   // * nav
   .nav {
-    @include min-width(1025px) {
+    @include min-width(map-get($desktop, sm)) {
       border-top: 1px solid $color-white;
       border-bottom: 1px solid $color-white;
     }
