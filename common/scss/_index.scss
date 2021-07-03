@@ -1,0 +1,73 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+
+
+// * ==========================================================================
+// * 首頁內容 專區
+// * ==========================================================================
+
+.card-image {
+  width: 100%;
+  height: 0px;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.web-works-wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  > li {
+    width: calc((100% - 80px) / 3);
+    margin: 0 40px 40px 0;
+    background-color: $color-black;
+
+    &:nth-of-type(3n) {
+      margin-right: 0;
+    }
+
+    > a {
+      width: 100%;
+      display: block;
+      color: $color-white;
+    }
+  }
+}
+
+.article-info {
+  .aside-item-wrap-info_text {
+    > a {
+      width: 100%;
+      display: block;
+      font-size: map-get($fontsize, 3);
+      color: $color-white;
+      line-height: 1.5;
+      transition: .1s;
+
+      @include min-width(map-get($desktop, sm)) {
+        &:hover{
+          color: $color-gray-6;
+        }
+      }
+    }
+
+    >p{
+      color: $color-white;
+      margin-top: 0.5rem;
+      font-size: map-get($fontsize, 4);
+      line-height: 1.5;
+    }
+  }
+}

@@ -659,6 +659,7 @@ $(function () {
     },
     pagination: {
       el: ".swiper-pagination",
+      clickable: true,
     },
   });
 

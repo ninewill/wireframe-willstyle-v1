@@ -25,3 +25,5 @@ $languageVersion: ch;
 @include banner($languageVersion);
 
 @import "./_grid.scss";
+
+@import "./_index.scss";
