@@ -232,7 +232,6 @@ $(function () {
       },
       800,
       function () {
-        // $('#u').trigger('focus');
         $(".firstGoTo-btn").trigger("focus");
       }
     );
@@ -243,8 +242,10 @@ $(function () {
     if (!$floatBtn.is(":animated")) {
       if (value > 1) {
         $floatBtn.stop(true, true).fadeIn();
+        $floatBtn.css('transform','scale(1)');
       } else {
         $floatBtn.stop(true, true).fadeOut();
+        $floatBtn.css('transform','scale(0)');
       }
     }
   }

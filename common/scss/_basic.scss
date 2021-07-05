@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import "./utils/_utils.scss";
+@import './utils/_utils.scss';
 
 @mixin basic($language) {
   html,
@@ -21,15 +21,15 @@
 
     @if $language == en {
       // 英文版的字體
-      font-family: "PT Sans", sans-serif, Arial;
+      font-family: 'PT Sans', sans-serif, Arial;
       letter-spacing: 0px;
     } @else if $language == jp {
       // 日語版的字體
-      font-family: "Yu Gothic", sans-serif, Arial;
+      font-family: 'Yu Gothic', sans-serif, Arial;
       letter-spacing: 0.5px;
     } @else {
       // 中文版的字體
-      font-family: "微軟正黑體", "Microsoft JhengHei", sans-serif, Arial,
+      font-family: '微軟正黑體', 'Microsoft JhengHei', sans-serif, Arial,
         Helvetica;
       letter-spacing: 0.5px;
     }
@@ -106,21 +106,21 @@
   sup {
     color: inherit;
     vertical-align: super;
-	}
-	
-	// * ==========================================================================
+  }
+
+  // * ==========================================================================
   // * input 外框設定
   // * ==========================================================================
 
-  input[type="text"]:focus,
-  input[type="password"]:focus,
-  input[type="number"]:focus,
-  input[type="email"]:focus,
-  input[type="file"]:focus,
-  input[type="date"]:focus,
+  input[type='text']:focus,
+  input[type='password']:focus,
+  input[type='number']:focus,
+  input[type='email']:focus,
+  input[type='file']:focus,
+  input[type='date']:focus,
   select:focus {
     outline: none;
-    -webkit-box-shadow: 0 0 0 0.13rem  #000;
+    -webkit-box-shadow: 0 0 0 0.13rem #000;
     box-shadow: 0 0 0 0.13rem #000;
     -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
     transition: -webkit-box-shadow 0.15s ease-in-out;
@@ -146,7 +146,7 @@
     color: $color-white;
 
     @if $language == jp {
-      font-family: "Yu Gothic", sans-serif, Arial;
+      font-family: 'Yu Gothic', sans-serif, Arial;
     }
 
     @include min-width(map-get($desktop, sm)) {
@@ -264,7 +264,7 @@
       position: absolute;
       top: 0px;
       left: 0px;
-      background: url("../images/AA.jpg") no-repeat center/contain;
+      background: url('../images/AA.jpg') no-repeat center/contain;
       color: $color-white;
 
       @include hidetext;
@@ -286,7 +286,7 @@
       position: absolute;
       top: 0px;
       left: 0px;
-      background: url("../images/egov.png") no-repeat center/contain;
+      background: url('../images/egov.png') no-repeat center/contain;
       color: $color-white;
 
       @include hidetext;
@@ -322,7 +322,7 @@
     font-size: 0rem;
     background: {
       color: #f7f7f7;
-      image: url("../images/loader.gif");
+      image: url('../images/loader.gif');
       repeat: no-repeat;
       position: center;
     }
@@ -423,6 +423,7 @@
     bottom: 50px;
     right: 20px;
     z-index: 300;
+    transition: all 0.36s;
 
     @include min-width(480px + 1px) {
       bottom: 200px;
@@ -437,11 +438,9 @@
       color: $color-white;
       background-color: $color-black;
       line-height: 50px;
-
       text-align: center;
       text-decoration: none;
-      opacity: 0.5;
-      transition: opacity 1s;
+      opacity: 1;
 
       @include min-width(480px + 1px) {
         width: 60px;
@@ -456,90 +455,94 @@
         }
       }
     }
+
+    .iconfont {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -3px;
+    }
   }
 }
 
+// * ==========================================================================
+// * 下拉選單
+// * ==========================================================================
 
+.dropdown {
+  display: block;
+  position: relative;
+}
 
-  // * ==========================================================================
-  // * 下拉選單
-  // * ==========================================================================
+// * 下拉選單的開關按鈕
+.dropdown-btn {
+  display: block;
+  padding: 8px 10px;
+  line-height: 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: $color-black;
+  position: relative;
+  z-index: 3;
 
-  .dropdown {
-    display: block;
-    position: relative;
-  }
-
-  // * 下拉選單的開關按鈕
-  .dropdown-btn {
-    display: block;
-    padding: 8px 10px;
-    line-height: 24px;
-    text-decoration: none;
-    border-radius: 5px;
-    color: $color-black;
-    position: relative;
-    z-index: 3;
-
-    @include no-js {
-      display: none;
-    }
-
-    &.icon-google::after {
-      content: "";
-      width: 0;
-      height: 0;
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 5px;
-      border-style: solid;
-      border-width: 7.5px 7.5px 0 7.5px;
-      border-color: #161211 transparent transparent transparent;
-    }
-  }
-
-  // * 下拉選單的列表
-  .dropdown-list {
-    width: 100%;
+  @include no-js {
     display: none;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.308);
-    border: 1px $color-gray-white solid;
-    border-radius: 5px;
-    overflow: hidden;
-    z-index: 10;
+  }
+
+  &.icon-google::after {
+    content: '';
+    width: 0;
+    height: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    border-style: solid;
+    border-width: 7.5px 7.5px 0 7.5px;
+    border-color: #161211 transparent transparent transparent;
+  }
+}
+
+// * 下拉選單的列表
+.dropdown-list {
+  width: 100%;
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.308);
+  border: 1px $color-gray-white solid;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10;
+
+  a {
+    display: block;
+    border-bottom: 1px solid $color-white;
+    text-decoration: none;
+    color: $color-white !important;
+    padding: 5px 10px;
+    transition: 0.2s;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @include min-width(map-get($desktop, sm)) {
+      &:hover,
+      &:focus {
+        background-color: $color-black;
+        color: $color-white;
+      }
+    }
+  }
+
+  @include no-js {
+    display: block;
+    margin-bottom: 10px;
+    position: static;
+    border: none;
 
     a {
-      display: block;
-      border-bottom: 1px solid $color-white;
-      text-decoration: none;
-      color: $color-white !important;
-      padding: 5px 10px;
-      transition: 0.2s;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      @include min-width(map-get($desktop, sm)) {
-        &:hover,
-        &:focus {
-          background-color: $color-black;
-          color: $color-white;
-        }
-      }
-    }
-
-    @include no-js {
-      display: block;
-      margin-bottom: 10px;
-      position: static;
-      border: none;
-
-      a {
-        display: inline-block;
-        border: 1px $color-gray-white solid;
-        border-radius: 5px;
-      }
+      display: inline-block;
+      border: 1px $color-gray-white solid;
+      border-radius: 5px;
     }
   }
+}
