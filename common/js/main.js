@@ -10,7 +10,7 @@ $(function () {
   let scrollTop = $window.scrollTop();
 
 
-  $('img.lazyload').attr('src', 'common/images/_loading.gif');
+  $('img.lazyload').attr('src', 'common/images/loader.gif');
 
     /*
    * ==========================================================================
