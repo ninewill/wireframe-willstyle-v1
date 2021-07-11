@@ -20,6 +20,7 @@
 
   .idx-a1-more {
     > a {
+      height: 100%;
       display: flex;
       align-items: center;
       transition: 0.1s;
@@ -53,8 +54,12 @@
 
   > li {
     width: calc((100% - 80px) / 3);
-    margin: 0 40px 40px 0;
+    margin: 0 40px 0 0;
     border-right: 1px solid #e5e5e5;
+
+    &:last-child{
+      border-right: none;
+    }
 
     &:nth-of-type(3n) {
       margin-right: 0;
@@ -86,13 +91,19 @@
       .idx-a1s1-txtbox {
       }
       .idx-a1s1-date {
+        display: flex;
+        align-items: center;
         margin-bottom: 25px;
         font-size: 1rem;
         line-height: 20px;
+
+        .iconshijian{
+          margin-right: 0.5rem;
+        }
       }
       .idx-a1s1-txt {
-        // height: 68px;
-        // overflow: hidden;
+        height: 68px;
+        overflow: hidden;
         margin-bottom: 60px;
         color: $color-black;
         line-height: 34px;

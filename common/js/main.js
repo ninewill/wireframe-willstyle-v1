@@ -1,33 +1,32 @@
 $(function () {
   const $window = $(window);
-  const $html = $("html");
-  const $menu = $("#menu");
-  const $content = $("#content");
-  const languageType = $html.attr("lang");
+  const $html = $('html');
+  const $menu = $('#menu');
+  const $content = $('#content');
+  const languageType = $html.attr('lang');
 
   let screenWidth = $window.outerWidth();
   let screenHeight = $window.outerHeight();
   let scrollTop = $window.scrollTop();
 
-
   $('img.lazyload').attr('src', 'common/images/loader.gif');
 
-    /*
+  /*
    * ==========================================================================
    * 日夜間切換按鈕
    * ==========================================================================
    */
-    $("#switch").click(function () {
-      let htmlClasses = document.querySelector("html").classList;
-  
-      if (localStorage.theme === "dark") {
-        htmlClasses.remove("dark");
-        localStorage.removeItem("theme");
-      } else {
-        htmlClasses.add("dark");
-        localStorage.theme = "dark";
-      }
-    });
+  $('#switch').click(function () {
+    let htmlClasses = document.querySelector('html').classList;
+
+    if (localStorage.theme === 'dark') {
+      htmlClasses.remove('dark');
+      localStorage.removeItem('theme');
+    } else {
+      htmlClasses.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
 
   /*
    * ==========================================================================
@@ -36,17 +35,17 @@ $(function () {
    */
 
   function cloneOtherLink() {
-    let $container = $menu.children("ul");
+    let $container = $menu.children('ul');
 
     // 複製語言選擇連結
-    let $language = $(".language-btn");
+    let $language = $('.language-btn');
 
     $language.each(function () {
       let dom = $(this).clone();
       $container.append(dom);
     });
 
-    $container.find(".language-btn").wrap('<li class="bring-item"></li>');
+    $container.find('.language-btn').wrap('<li class="bring-item"></li>');
   }
 
   cloneOtherLink();
@@ -89,16 +88,16 @@ $(function () {
 
     if (width > 1024) {
       if (value > fixedValue) {
-        if ($menu.hasClass("is-fixed") === false) {
-          $menu.addClass("is-fixed");
+        if ($menu.hasClass('is-fixed') === false) {
+          $menu.addClass('is-fixed');
         }
       } else {
-        if ($menu.hasClass("is-fixed")) {
-          $menu.removeClass("is-fixed");
+        if ($menu.hasClass('is-fixed')) {
+          $menu.removeClass('is-fixed');
         }
       }
     } else {
-      $menu.removeClass("is-fixed");
+      $menu.removeClass('is-fixed');
     }
   }
 
@@ -108,33 +107,33 @@ $(function () {
    * ==========================================================================
    */
 
-  let $anchorBtn = $(".anchor-btn");
+  let $anchorBtn = $('.anchor-btn');
 
   function setAnchorBtn() {
     if ($anchorBtn.length) {
-      $anchorBtn.on("click", function () {
+      $anchorBtn.on('click', function () {
         let $this = $(this);
-        let targetName = $this.attr("href");
-        let $target = $(targetName.slice(targetName.indexOf("#")));
+        let targetName = $this.attr('href');
+        let $target = $(targetName.slice(targetName.indexOf('#')));
         let padding = 0;
 
         if (screenWidth > 1024) {
           padding = $menu.innerHeight();
         } else {
           padding = 50;
-          $menuSwotchBtn.removeClass("is-open");
+          $menuSwotchBtn.removeClass('is-open');
           // ctrlMenu(screenWidth);
         }
 
         let scrollValue = $target.offset().top - padding;
 
-        $("html, body").animate(
+        $('html, body').animate(
           {
             scrollTop: scrollValue,
           },
           800,
           function () {
-            $target.trigger("focus");
+            $target.trigger('focus');
           }
         );
 
@@ -151,22 +150,22 @@ $(function () {
    * ==========================================================================
    */
 
-  const openAnchorScroll = $menu.hasClass("anchor-scroll");
+  const openAnchorScroll = $menu.hasClass('anchor-scroll');
 
   function setAnchorScroll(scrollTop) {
     if (openAnchorScroll) {
-      $(".section").each(function () {
+      $('.section').each(function () {
         let $this = $(this);
 
         if (scrollTop >= $this.offset().top - $menu.innerHeight()) {
-          let id = $this.attr("id");
-          $(".anchor-btn").removeClass("current");
-          $(`.anchor-btn[href="#${id}"]`).addClass("current");
+          let id = $this.attr('id');
+          $('.anchor-btn').removeClass('current');
+          $(`.anchor-btn[href="#${id}"]`).addClass('current');
         }
 
         if (scrollTop >= $(document).innerHeight() - $window.innerHeight()) {
-          $(".anchor-btn").removeClass("current");
-          $(".anchor-btn").last().addClass("current");
+          $('.anchor-btn').removeClass('current');
+          $('.anchor-btn').last().addClass('current');
         }
       });
     }
@@ -180,12 +179,12 @@ $(function () {
    * ==========================================================================
    */
 
-  const $share = $(".share");
-  const $shareBtn = $share.find(".share-btn");
+  const $share = $('.share');
+  const $shareBtn = $share.find('.share-btn');
 
   function ctrlShareList() {
-    let $shareList = $share.find(".share-list");
-    if ($shareBtn.hasClass("is-open") === true) {
+    let $shareList = $share.find('.share-list');
+    if ($shareBtn.hasClass('is-open') === true) {
       $shareList.stop(true, true).fadeIn();
     } else {
       $shareList.stop(true, true).fadeOut();
@@ -193,24 +192,24 @@ $(function () {
   }
 
   $share
-    .on("mouseenter", function () {
-      $shareBtn.addClass("is-open");
+    .on('mouseenter', function () {
+      $shareBtn.addClass('is-open');
       ctrlShareList();
     })
-    .on("mouseleave", function () {
-      $shareBtn.removeClass("is-open");
+    .on('mouseleave', function () {
+      $shareBtn.removeClass('is-open');
       ctrlShareList();
     });
 
-  $shareBtn.on("focus", function () {
-    $shareBtn.addClass("is-open");
+  $shareBtn.on('focus', function () {
+    $shareBtn.addClass('is-open');
     ctrlShareList();
   });
 
-  $(".share-list > li a")
+  $('.share-list > li a')
     .last()
-    .on("blur", function () {
-      $shareBtn.removeClass("is-open");
+    .on('blur', function () {
+      $shareBtn.removeClass('is-open');
       ctrlShareList();
     });
 
@@ -222,30 +221,30 @@ $(function () {
    * ==========================================================================
    */
 
-  const $floatBtn = $(".floatbtn");
-  const $topBtn = $floatBtn.find(".top-btn");
+  const $floatBtn = $('.floatbtn');
+  const $topBtn = $floatBtn.find('.top-btn');
 
-  $topBtn.on("click", function () {
-    $("html, body").animate(
+  $topBtn.on('click', function () {
+    $('html, body').animate(
       {
         scrollTop: 0,
       },
       800,
       function () {
-        $(".firstGoTo-btn").trigger("focus");
+        $('.firstGoTo-btn').trigger('focus');
       }
     );
     return false;
   });
 
   function topButtonShower(value) {
-    if (!$floatBtn.is(":animated")) {
+    if (!$floatBtn.is(':animated')) {
       if (value > 1) {
         $floatBtn.stop(true, true).fadeIn();
-        $floatBtn.css('transform','scale(1)');
+        $floatBtn.css('transform', 'scale(1)');
       } else {
         $floatBtn.stop(true, true).fadeOut();
-        $floatBtn.css('transform','scale(0)');
+        $floatBtn.css('transform', 'scale(0)');
       }
     }
   }
@@ -259,10 +258,10 @@ $(function () {
    */
 
   let fontsize = {
-    plusBtn: $(".fontsize-btn-plus"),
-    decBtn: $(".fontsize-btn-dec"),
+    plusBtn: $('.fontsize-btn-plus'),
+    decBtn: $('.fontsize-btn-dec'),
     value: 2,
-    size: ["1.125", "1.2", "1.25", "1.3", "1.35", "1.4"],
+    size: ['1.125', '1.2', '1.25', '1.3', '1.35', '1.4'],
   };
 
   function ctrlFontsize(width) {
@@ -279,17 +278,17 @@ $(function () {
         fontSize: `${fontsize.size[fontsize.value]}rem`,
       });
     } else {
-      $content.attr("style", "");
+      $content.attr('style', '');
       fontsize.value = 2;
     }
   }
 
-  fontsize.plusBtn.on("click", function () {
+  fontsize.plusBtn.on('click', function () {
     fontsize.value = fontsize.value + 1;
     ctrlFontsize(screenWidth);
   });
 
-  fontsize.decBtn.on("click", function () {
+  fontsize.decBtn.on('click', function () {
     fontsize.value = fontsize.value - 1;
     ctrlFontsize(screenWidth);
   });
@@ -302,7 +301,7 @@ $(function () {
    * ==========================================================================
    */
 
-  $(".features .option-btn.share-btn").append(`
+  $('.features .option-btn.share-btn').append(`
     <svg xmlns="http://www.w3.org/2000/svg" width="20.573" height="20.573" viewBox="0 0 20.573 20.573">
       <g id="icon-share" opacity="0.57">
         <path id="share_4_" data-name="share (4)"
@@ -312,7 +311,7 @@ $(function () {
     </svg>
   `);
 
-  $(".features .option-btn.print-btn").append(`
+  $('.features .option-btn.print-btn').append(`
     <svg xmlns="http://www.w3.org/2000/svg" width="25.31" height="25.534" viewBox="0 0 25.31 25.534">
       <g id="icon-pirnt" opacity="0.66">
         <g id="printer" transform="translate(0)">
@@ -326,21 +325,21 @@ $(function () {
     </svg>
     `);
 
-  $(".fontsize-btn-plus").append(`
+  $('.fontsize-btn-plus').append(`
       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-25 -25 100 100">
         <path class="plus-p" fill="#444"
           d="M52.5 24.961v2.117a2.115 2.115 0 0 1-2.117 2.118h-4.236v4.235a2.114 2.114 0 0 1-2.118 2.117h-2.116a2.114 2.114 0 0 1-2.117-2.117v-4.235H35.56a2.116 2.116 0 0 1-2.118-2.118v-2.117c0-1.172.947-2.116 2.118-2.116h4.235v-4.237c0-1.172.947-2.116 2.117-2.116h2.116c1.173 0 2.118.946 2.118 2.116v4.237h4.236a2.112 2.112 0 0 1 2.118 2.116zM31.145 42.62c.111.453.129.803.057 1.025-.079.224-.318.344-.729.344h-6.945c-.634 0-1.066-.146-1.291-.428-.225-.288-.43-.738-.615-1.34l-1.798-6.67H8.491L6.618 42.39c-.189.607-.429 1.03-.729 1.256-.3.224-.709.344-1.233.344h-6.215c-.412 0-.692-.084-.839-.258-.152-.17-.134-.578.055-1.228L8.467 7.67c.187-.531.41-.942.672-1.231.258-.282.762-.428 1.513-.428h7.057c.784 0 1.295.157 1.54.461.242.304.456.723.643 1.254L31.145 42.62zM18.113 29.198l-3.771-13.989h-.278l-3.833 13.989h7.882z" />
       </svg>
     `);
 
-  $(".fontsize-btn-dec").append(`
+  $('.fontsize-btn-dec').append(`
       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-25 -25 100 100">
         <path class="dec-d" fill="#444"
           d="M52.5 24.962v2.119a2.114 2.114 0 0 1-2.118 2.117H35.556a2.116 2.116 0 0 1-2.118-2.117v-2.119c0-1.172.947-2.118 2.118-2.118h14.826c1.173 0 2.118.946 2.118 2.118zM31.145 42.621c.111.453.13.8.058 1.023-.077.224-.318.343-.728.343h-6.946c-.635 0-1.064-.146-1.291-.428-.224-.288-.429-.738-.615-1.34l-1.798-6.67H8.49l-1.875 6.838c-.188.608-.43 1.031-.729 1.257-.297.224-.709.343-1.232.343H-1.56c-.411 0-.691-.086-.838-.258-.152-.17-.134-.577.056-1.226L8.465 7.67c.185-.532.41-.941.671-1.23.259-.282.765-.428 1.514-.428h7.057c.783 0 1.297.156 1.539.459.241.304.456.722.644 1.254l11.255 34.896zM18.114 29.198L14.341 15.21h-.278L10.23 29.198h7.884z" />
       </svg>
     `);
 
-  $(".download-icon").append(`
+  $('.download-icon').append(`
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34.825" viewBox="0 0 30 34.825">
       <g id="icon-download" transform="translate(1.88 0.001)">
         <path id="Path_12168" data-name="Path 12168" d="M20.692.231,20.685.224A.69.69,0,0,0,20.17,0H10.013a3.66,3.66,0,0,0-3.571,3.74V5.3H1.692A3.659,3.659,0,0,0-1.88,9.043V31.085a3.659,3.659,0,0,0,3.571,3.74H16.227a3.66,3.66,0,0,0,3.571-3.74V29.522h4.75a3.659,3.659,0,0,0,3.571-3.74V8.309a.791.791,0,0,0-.207-.531Zm.193,2.319,4.807,5.026H23.027a2.2,2.2,0,0,1-2.143-2.244ZM16.227,33.329H1.692A2.2,2.2,0,0,1-.451,31.085V9.043A2.2,2.2,0,0,1,1.692,6.8H6.906a.72.72,0,0,0,.5,0h3.736v3.837a3.659,3.659,0,0,0,3.571,3.74h3.664v16.71a2.208,2.208,0,0,1-2.15,2.244Zm1.15-20.45H14.713a2.2,2.2,0,0,1-2.143-2.244V7.853Zm7.172,15.146H19.8V13.612a.79.79,0,0,0-.207-.531L12.377,5.534l-.007-.007a.69.69,0,0,0-.514-.224H7.87V3.739A2.2,2.2,0,0,1,10.013,1.5h9.45V5.332a3.659,3.659,0,0,0,3.571,3.74h3.657v16.71a2.2,2.2,0,0,1-2.143,2.244Zm0,0" transform="translate(0 0)" fill="#ab8f4e"/>
@@ -355,21 +354,31 @@ $(function () {
 
   /*
    * ==========================================================================
+   * 首頁 SVG樣式
+   * ==========================================================================
+   */
+
+  $('.iconshijian').append(`
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+  `);
+
+  /*
+   * ==========================================================================
    * 相簿（鍵盤操作相簿說明）
    * ==========================================================================
    */
 
   function ctrlAlbumInstruction(btn) {
-    if (btn.hasClass("is-open")) {
-      btn.next(".instruction-menu").stop(true, true).slideDown();
+    if (btn.hasClass('is-open')) {
+      btn.next('.instruction-menu').stop(true, true).slideDown();
     } else {
-      btn.next(".instruction-menu").stop(true, true).slideUp();
+      btn.next('.instruction-menu').stop(true, true).slideUp();
     }
   }
 
-  $(".instruction-keypress .instruction-btn").on("click", function () {
+  $('.instruction-keypress .instruction-btn').on('click', function () {
     let $this = $(this);
-    $this.toggleClass("is-open");
+    $this.toggleClass('is-open');
     ctrlAlbumInstruction($this);
   });
 
@@ -379,36 +388,36 @@ $(function () {
    * ==========================================================================
    */
 
-  let $albumList = $(".album-list");
+  let $albumList = $('.album-list');
 
   $albumList.each(function (index) {
-    $(this).attr("data-index", index);
+    $(this).attr('data-index', index);
   });
 
   function checkAlbumHash() {
     let hash = window.location.hash.substr(1);
-    if (hash.indexOf("lg") > -1) {
-      let andIndex = hash.indexOf("&");
+    if (hash.indexOf('lg') > -1) {
+      let andIndex = hash.indexOf('&');
       let str = hash.substring(0, andIndex);
-      let val = str.substring(str.indexOf("lg") + 3, andIndex);
+      let val = str.substring(str.indexOf('lg') + 3, andIndex);
 
       $(`.album-list[data-index="${val}"]`)
-        .find(".lazyload")
+        .find('.lazyload')
         .each(function () {
           let $image = $(this);
-          let src = $image.data("src");
-          $image.attr("src", src);
+          let src = $image.data('src');
+          $image.attr('src', src);
         });
     }
   }
 
   function setAlbum() {
-    if ($albumList.children("li").length) {
+    if ($albumList.children('li').length) {
       $albumList.each(function () {
         let $album = $(this);
-        let index = $album.data("index");
+        let index = $album.data('index');
 
-        $album.find(".album-item").attr("tabindex", "-1");
+        $album.find('.album-item').attr('tabindex', '-1');
 
         $album.lightGallery({
           download: false,
@@ -417,46 +426,46 @@ $(function () {
           galleryId: index,
         });
 
-        $album.on("onBeforeOpen.lg", function (e) {
+        $album.on('onBeforeOpen.lg', function (e) {
           $(this)
-            .find(".lazyload")
+            .find('.lazyload')
             .each(function () {
               let $image = $(this);
-              let src = $image.data("src");
-              $image.attr("src", src);
+              let src = $image.data('src');
+              $image.attr('src', src);
             });
         });
 
-        $album.on("onAfterOpen.lg", function (e) {
+        $album.on('onAfterOpen.lg', function (e) {
           let language = {
-            zoomIn: "放大",
-            zoomOut: "縮小",
-            close: "關閉（ESC）",
-            prev: "上一張",
-            next: "下一張",
+            zoomIn: '放大',
+            zoomOut: '縮小',
+            close: '關閉（ESC）',
+            prev: '上一張',
+            next: '下一張',
           };
 
-          if (languageType === "en") {
-            language.zoomIn = "Zoom In";
-            language.zoomOut = "Zoom Out";
-            language.close = "Close (ESC)";
-            language.prev = "Previous";
-            language.next = "Next";
+          if (languageType === 'en') {
+            language.zoomIn = 'Zoom In';
+            language.zoomOut = 'Zoom Out';
+            language.close = 'Close (ESC)';
+            language.prev = 'Previous';
+            language.next = 'Next';
           }
 
-          if (languageType === "ja") {
-            language.zoomIn = "ズームイン";
-            language.zoomOut = "ズームアウトする";
-            language.close = "閉じる（ESC）";
-            language.prev = "前のページ";
-            language.next = "次のページ";
+          if (languageType === 'ja') {
+            language.zoomIn = 'ズームイン';
+            language.zoomOut = 'ズームアウトする';
+            language.close = '閉じる（ESC）';
+            language.prev = '前のページ';
+            language.next = '次のページ';
           }
 
-          $("#lg-zoom-in").attr("title", language.zoomIn);
-          $("#lg-zoom-out").attr("title", language.zoomOut);
-          $(".lg-close").attr("title", language.close);
-          $(".lg-next").attr("title", language.next);
-          $(".lg-prev").attr("title", language.prev);
+          $('#lg-zoom-in').attr('title', language.zoomIn);
+          $('#lg-zoom-out').attr('title', language.zoomOut);
+          $('.lg-close').attr('title', language.close);
+          $('.lg-next').attr('title', language.next);
+          $('.lg-prev').attr('title', language.prev);
         });
       });
     }
@@ -465,22 +474,22 @@ $(function () {
   checkAlbumHash();
   setAlbum();
 
-  $(".exhibit-image").each(function () {
+  $('.exhibit-image').each(function () {
     let $this = $(this);
-    if ($this.children(".album-list").length) {
-      $this.addClass("has-icon");
-      $this.children(".album-preview").attr("tabindex", "0");
+    if ($this.children('.album-list').length) {
+      $this.addClass('has-icon');
+      $this.children('.album-preview').attr('tabindex', '0');
     }
   });
 
-  $(".album-preview").on("click", function () {
+  $('.album-preview').on('click', function () {
     let $this = $(this);
-    let $album = $this.siblings(".album-list");
-    let index = $album.children("li").length;
+    let $album = $this.siblings('.album-list');
+    let index = $album.children('li').length;
     $album
-      .children("li")
+      .children('li')
       .eq(index - 1)
-      .trigger("click");
+      .trigger('click');
   });
 
   /*
@@ -490,7 +499,7 @@ $(function () {
    */
 
   function setFootable() {
-    let $footable = $(".footable");
+    let $footable = $('.footable');
     if ($footable.length) {
       $footable.footable({
         calculateWidthOverride: function () {
@@ -510,19 +519,19 @@ $(function () {
    * ==========================================================================
    */
 
-  const $swipeTable = $(".swipeTable");
+  const $swipeTable = $('.swipeTable');
 
   function ctrlSwipeTableNotice(width) {
     if ($swipeTable && width <= 1024) {
       $swipeTable.each(function () {
         let $table = $(this);
-        let $innerWrap = $table.parent(".swipeTable__innerwrap");
-        let $notice = $innerWrap.siblings(".swipeTable__notice");
+        let $innerWrap = $table.parent('.swipeTable__innerwrap');
+        let $notice = $innerWrap.siblings('.swipeTable__notice');
 
         if ($table.width() > $innerWrap.width()) {
-          $notice.addClass("is-open");
+          $notice.addClass('is-open');
         } else {
-          $notice.removeClass("is-open");
+          $notice.removeClass('is-open');
         }
       });
     }
@@ -531,12 +540,12 @@ $(function () {
   function setSwipeTable() {
     $swipeTable.each(function () {
       let $table = $(this);
-      let notice = $table.data("notice");
+      let notice = $table.data('notice');
       $table.wrap(
         `<div class="swipeTable__outerwrap"><div class="swipeTable__innerwrap"></div></div>`
       );
       $table
-        .parent(".swipeTable__innerwrap")
+        .parent('.swipeTable__innerwrap')
         .before(`<p class="swipeTable__notice">${notice}</p>`);
     });
   }
@@ -550,7 +559,7 @@ $(function () {
    */
 
   let carousel = {
-    className: ".carousel",
+    className: '.carousel',
     collection: [],
   };
 
@@ -565,22 +574,22 @@ $(function () {
 
       function setBulletTitle(swiperIndex) {
         $(`.carousel-${swiperIndex}`)
-          .find(".swiper-pagination-bullet")
+          .find('.swiper-pagination-bullet')
           .each(function () {
             let $this = $(this);
             let bulletIndex = $this.index();
             let titleText = `移動至 ${nameArray[bulletIndex]}`;
 
-            if (languageType === "en") {
+            if (languageType === 'en') {
               titleText = `Go To "${nameArray[bulletIndex]}"`;
             }
 
-            if (languageType === "ja") {
+            if (languageType === 'ja') {
               titleText = `${nameArray[bulletIndex]} に移動`;
             }
 
             $this.attr({
-              "aria-label": titleText,
+              'aria-label': titleText,
               title: titleText,
             });
           });
@@ -592,11 +601,11 @@ $(function () {
         autoHeight: true,
         loop: false,
         navigation: {
-          nextEl: ".carousel-btn-next",
-          prevEl: ".carousel-btn-prev",
+          nextEl: '.carousel-btn-next',
+          prevEl: '.carousel-btn-prev',
         },
         pagination: {
-          el: ".swiper-pagination",
+          el: '.swiper-pagination',
           clickable: true,
         },
         keyboard: {
@@ -605,16 +614,16 @@ $(function () {
         on: {
           init: function () {
             $(`.carousel-${index + 1} .swiper-slide`).each(function () {
-              nameArray.push($(this).find(".exhibit-title").text());
+              nameArray.push($(this).find('.exhibit-title').text());
             });
           },
           slideChangeTransitionEnd: function () {
             $(`.carousel-${index + 1}`)
-              .find(".swiper-slide a")
-              .attr("tabindex", "-1");
+              .find('.swiper-slide a')
+              .attr('tabindex', '-1');
             $(`.carousel-${index + 1}`)
-              .find(".swiper-slide-active a, .swiper-slide-next a")
-              .attr("tabindex", "");
+              .find('.swiper-slide-active a, .swiper-slide-next a')
+              .attr('tabindex', '');
           },
           slideChange: function () {
             setBulletTitle(index + 1);
@@ -631,11 +640,11 @@ $(function () {
   function ctrlCarousel(width) {
     if ($carousel.length) {
       if (width > 1024) {
-        if ($carousel.hasClass("swiper-container-initialized") === false) {
+        if ($carousel.hasClass('swiper-container-initialized') === false) {
           setCarousel();
         }
       } else {
-        if ($carousel.hasClass("swiper-container-initialized")) {
+        if ($carousel.hasClass('swiper-container-initialized')) {
           if (carousel.collection.length) {
             carousel.collection.forEach(function (element, index) {
               $(`${carousel.className}-${index + 1}`).removeClass(
@@ -652,14 +661,14 @@ $(function () {
 
   ctrlCarousel(screenWidth);
 
-  var swiper = new Swiper(".mySwiper", {
-    effect: "fade",
+  var swiper = new Swiper('.mySwiper', {
+    effect: 'fade',
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
       clickable: true,
     },
   });
@@ -670,17 +679,17 @@ $(function () {
    * ==========================================================================
    */
 
-  $(".skiptoolbar").on("click", function () {
-    let $anchor = $("#content-anchor");
+  $('.skiptoolbar').on('click', function () {
+    let $anchor = $('#content-anchor');
     let value = $anchor.offset().top - $menu.innerHeight();
 
-    $("html, body").animate(
+    $('html, body').animate(
       {
         scrollTop: value,
       },
       800,
       function () {
-        $anchor.trigger("focus");
+        $anchor.trigger('focus');
       }
     );
   });
@@ -691,7 +700,7 @@ $(function () {
    * ==========================================================================
    */
 
-  $("a, button").on("mousedown", function (e) {
+  $('a, button').on('mousedown', function (e) {
     e.preventDefault();
   });
 
@@ -722,29 +731,28 @@ $(function () {
    */
 
   function ctrlDropdownList() {
-    $(".dropdown").each(function () {
+    $('.dropdown').each(function () {
       let $this = $(this);
-      if ($this.hasClass("is-open") === true) {
-        $this.children(".dropdown-list").stop(true, true).slideDown();
+      if ($this.hasClass('is-open') === true) {
+        $this.children('.dropdown-list').stop(true, true).slideDown();
       } else {
-        $this.children(".dropdown-list").stop(true, true).slideUp();
+        $this.children('.dropdown-list').stop(true, true).slideUp();
       }
     });
   }
 
-  $(".dropdown-btn").on("click", function () {
+  $('.dropdown-btn').on('click', function () {
     let $this = $(this);
-    $this.parent(".dropdown").toggleClass("is-open");
+    $this.parent('.dropdown').toggleClass('is-open');
     ctrlDropdownList();
   });
 
-  $(".dropdown-list > a:last-child").on("blur", function () {
-    $(this).parents(".dropdown").removeClass("is-open");
+  $('.dropdown-list > a:last-child').on('blur', function () {
+    $(this).parents('.dropdown').removeClass('is-open');
     ctrlDropdownList();
   });
 
   ctrlDropdownList();
-
 
   /*
    * ==========================================================================
@@ -754,30 +762,30 @@ $(function () {
 
   function txtSearch() {
     //移除b標簽，防止二次搜索BUG
-    $(".changestyle").each(function () {
+    $('.changestyle').each(function () {
       var xxx = $(this).html();
       $(this).replaceWith(xxx);
     });
     //整個文章的div
-    var str = $("#postMain").html();
+    var str = $('#postMain').html();
     //文字輸入框
-    var txt = $("#txtSearch").val();
+    var txt = $('#txtSearch').val();
     //不為空
-    if ($.trim(txt) != "") {
+    if ($.trim(txt) != '') {
       //定義b標簽樣式黃底粗字
-      var re = "<b class='changestyle'>" + txt + "</b>";
+      var re = "<b class='changestyle'>" + txt + '</b>';
       //替換搜索相關的所有內容
-      var nn = str.replace(new RegExp(txt, "gm"), re);
+      var nn = str.replace(new RegExp(txt, 'gm'), re);
       //賦值
       // document.getElementById("postMain").innerHTML=nn;
-      $("#postMain").html(nn);
+      $('#postMain').html(nn);
       //顯示搜索內容相關的div
-      $(".card")
+      $('.card')
         .hide()
         .filter(":contains('" + txt + "')")
         .show();
     } else {
-      $(".card").show();
+      $('.card').show();
     }
   }
 
@@ -787,10 +795,10 @@ $(function () {
    * ==========================================================================
    */
 
-  var menuBox = $(".menu-box");
-  var menuContent = $(".menu-content ul li");
-  var menuGuid = $(".guid-area");
-  var menuWrap = $(".menu-mobile-btn");
+  var menuBox = $('.menu-box');
+  var menuContent = $('.menu-content ul li');
+  var menuGuid = $('.guid-area');
+  var menuWrap = $('.menu-mobile-btn');
   var open = false;
   var tl = new TimelineMax();
   tl.pause();
@@ -806,19 +814,19 @@ $(function () {
   tl.staggerFrom(menuContent, 0.2, { autoAlpha: 0, y: -15 });
   tl.staggerFrom(menuGuid, 0.4, { autoAlpha: 0, y: -15 });
 
-  menuWrap.on("click", () => {
+  menuWrap.on('click', () => {
     if (open === false) {
       tl.play();
-      $("body,html").addClass("add");
+      $('body,html').addClass('add');
     }
     if (open === true) {
       tl.reverse();
-      $("body,html").removeClass("add");
+      $('body,html').removeClass('add');
     }
     open = !open;
   });
 
-  $(".searchButton").keydown(function (event) {
+  $('.searchButton').keydown(function (event) {
     if (event.keyCode == 13) {
       checkOut();
     }
@@ -828,12 +836,12 @@ $(function () {
   // 收合 & 展開
   //////////////////////////////////
 
-  $(".acnav-all").on("click", function () {
-    $(this).toggleClass("selt");
-    if ($(this).hasClass("selt")) {
-      $(".animate-btn").text("全部收合");
+  $('.acnav-all').on('click', function () {
+    $(this).toggleClass('selt');
+    if ($(this).hasClass('selt')) {
+      $('.animate-btn').text('全部收合');
     } else {
-      $(".animate-btn").text("全部展開");
+      $('.animate-btn').text('全部展開');
     }
   });
 
@@ -841,58 +849,58 @@ $(function () {
   // 點擊展開more
   //////////////////////////////////
 
-  $(".more-filter-btn").on("click", function () {
-    $(".more-filter").toggle();
+  $('.more-filter-btn').on('click', function () {
+    $('.more-filter').toggle();
   });
 
   // ==========================================================================
   //  收合bar accordion nav
   // ==========================================================================
 
-  $(".acnav-all").click(function () {
-    var label = $(".acnav__label");
-    var parent = label.parent(".has-children");
-    var list = label.siblings(".acnav__list");
+  $('.acnav-all').click(function () {
+    var label = $('.acnav__label');
+    var parent = label.parent('.has-children');
+    var list = label.siblings('.acnav__list');
 
-    if (parent.hasClass("is-open")) {
-      list.slideUp("fast");
-      list.css("display", "flex");
-      parent.removeClass("is-open");
+    if (parent.hasClass('is-open')) {
+      list.slideUp('fast');
+      list.css('display', 'flex');
+      parent.removeClass('is-open');
     } else {
-      list.slideDown("fast");
-      list.css("display", "flex");
-      parent.addClass("is-open");
+      list.slideDown('fast');
+      list.css('display', 'flex');
+      parent.addClass('is-open');
     }
   });
 
-  $(".acnav__label").click(function () {
+  $('.acnav__label').click(function () {
     var label = $(this);
-    var parent = label.parent(".has-children");
-    var list = label.siblings(".acnav__list");
+    var parent = label.parent('.has-children');
+    var list = label.siblings('.acnav__list');
 
-    if (parent.hasClass("is-open")) {
-      list.slideUp("fast");
-      list.css("display", "flex");
-      parent.removeClass("is-open");
+    if (parent.hasClass('is-open')) {
+      list.slideUp('fast');
+      list.css('display', 'flex');
+      parent.removeClass('is-open');
     } else {
-      list.slideDown("fast");
-      list.css("display", "flex");
-      parent.addClass("is-open");
+      list.slideDown('fast');
+      list.css('display', 'flex');
+      parent.addClass('is-open');
     }
   });
 
   //Mobile
-  $(".acnav__label-m").click(function () {
+  $('.acnav__label-m').click(function () {
     var label = $(this);
-    var parent = label.parent(".has-children");
-    var list = label.siblings(".acnav__list");
+    var parent = label.parent('.has-children');
+    var list = label.siblings('.acnav__list');
 
-    if (parent.hasClass("is-open")) {
-      list.slideUp("fast");
-      parent.removeClass("is-open");
+    if (parent.hasClass('is-open')) {
+      list.slideUp('fast');
+      parent.removeClass('is-open');
     } else {
-      list.slideDown("fast");
-      parent.addClass("is-open");
+      list.slideDown('fast');
+      parent.addClass('is-open');
     }
   });
 
@@ -904,7 +912,7 @@ $(function () {
 
   $window
     .on(
-      "resize",
+      'resize',
       debounce(function () {
         screenWidth = $window.outerWidth();
         // ctrlMenu(screenWidth);
@@ -913,7 +921,7 @@ $(function () {
         ctrlCarousel(screenWidth);
       }, 400)
     )
-    .trigger("resize");
+    .trigger('resize');
 
   /*
    * ==========================================================================
@@ -921,7 +929,7 @@ $(function () {
    * ==========================================================================
    */
 
-  $window.on("scroll", function () {
+  $window.on('scroll', function () {
     scrollTop = $window.scrollTop();
     fixedHeader(screenWidth, scrollTop);
     topButtonShower(scrollTop);
@@ -935,7 +943,7 @@ $(function () {
    * ==========================================================================
    */
 
-  $window.on("load", function () {
+  $window.on('load', function () {
     fixedHeader(screenWidth, scrollTop);
   });
 
@@ -946,8 +954,8 @@ $(function () {
    * 瀏覽器 custom Scroll plugin
    * ==========================================================================
    */
-  $(".research__list-scroll").mCustomScrollbar({
-    axis: "y", // horizontal scrollbar
-    theme: "dark-2", //theme
+  $('.research__list-scroll').mCustomScrollbar({
+    axis: 'y', // horizontal scrollbar
+    theme: 'dark-2', //theme
   });
 });
