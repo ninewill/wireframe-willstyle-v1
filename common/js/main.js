@@ -673,6 +673,15 @@ $(function () {
     },
   });
 
+  var swiper3dcard = new Swiper(".idx-3dcard-swiper", {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
   /*
    * ==========================================================================
    * 無障礙跳過此子選單列按鈕
