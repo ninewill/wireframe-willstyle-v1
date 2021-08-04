@@ -19,21 +19,53 @@
         <!-- @@include ../layout/_header.html -->
         <div class="nav">
           <ul class="nav-item">
-            <li><a href="./page-1.html">首頁</a></li>
-            <li><a href="./page-website-work.html" class="open">網站作品</a></li>
+            <li><a href="./index.html" class="open">首頁</a></li>
+            <li><a href="./page-website-work.html">網站作品</a></li>
             <li><a href="./page-3d-work.html">3D作品</a></li>
             <li><a href="javascript:;">生活奇趣</a></li>
             <li><a href="javascript:;">自傳</a></li>
             <li><a href="javascript:;">大事紀</a></li>
           </ul>
         </div>
-        <!-- @@include ../layout/_banner-static.html -->
+        <!-- @@include ../layout/_banner.html -->
       </header>
       <div id="main">
+        <!-- <a href="#c" id="c" accesskey="c" class="acc" title="中間主要內容顯示區(C)">:::</a> -->
 
         <!-- 主內容 -->
         <div id="content">
           <div class="wrap">
+            <section class="section section-line idx-a1-s1">
+              <div class="idx-cont100">
+                <div class="idx-wrap">
+                  <!-- banner區 -->
+                  <div class="idx-a1-bd"></div>
+                  <div class="idx-a1-hd">
+                    <h2>作品</h2>
+                    <div class="idx-a1-more">
+                      <a href="javascript:;">
+                        <span>查看更多</span>
+                        <svg
+                          class="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          ></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="idx-a1-bd"></div>
+                </div>
+              </div>
+            </section>
 
             <section class="section section-line">
               <ul class="web-works-wrap idx-a1s1-list">
@@ -54,7 +86,7 @@
                     <div class="idx-a1s1-imgbox idx_list_imgbox">
                       <figure class="card-image">
                         <img
-                          src="../../common/images/loader.gif"
+                          src="common/images/loader.gif"
                           data-src="../../common/images/index-img/index_img01.png"
                           class="lazyload"
                           alt="圖片的說明文字-1"
@@ -86,7 +118,7 @@
                     <div class="idx-a1s1-imgbox idx_list_imgbox">
                       <figure class="card-image">
                         <img
-                          src="../../common/images/loader.gif"
+                          src="common/images/loader.gif"
                           data-src="../../common/images/index-img/index_img02.png"
                           class="lazyload"
                           alt="圖片的說明文字-1"
@@ -118,7 +150,7 @@
                     <div class="idx-a1s1-imgbox idx_list_imgbox">
                       <figure class="card-image">
                         <img
-                          src="../../common/images/loader.gif"
+                          src="common/images/loader.gif"
                           data-src="../../common/images/index-img/index_img03.png"
                           class="lazyload"
                           alt="圖片的說明文字-1"
@@ -134,6 +166,86 @@
                   </a>
                 </li>
               </ul>
+            </section>
+
+            <section>
+              <div class="sketchfab-embed-wrapper iframe">
+                <iframe
+                  title="Low Poly Animals"
+                  frameborder="0"
+                  allowfullscreen
+                  mozallowfullscreen="true"
+                  webkitallowfullscreen="true"
+                  allow="fullscreen; autoplay; vr"
+                  xr-spatial-tracking
+                  execution-while-out-of-viewport
+                  execution-while-not-rendered
+                  web-share
+                  src="https://sketchfab.com/models/85e7736541eb4ee3a0cdb381655a4b3d/embed"
+                >
+                </iframe>
+              </div>
+
+              <!-- 3d 輪播卡片 -->
+              <div class="swiper-container idx-3dcard-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="idx-3dcard-list iframe">
+                      <iframe
+                        title="Low Poly Animals"
+                        frameborder="0"
+                        allowfullscreen
+                        mozallowfullscreen="true"
+                        webkitallowfullscreen="true"
+                        allow="fullscreen; autoplay; vr"
+                        xr-spatial-tracking
+                        execution-while-out-of-viewport
+                        execution-while-not-rendered
+                        web-share
+                        src="https://sketchfab.com/models/85e7736541eb4ee3a0cdb381655a4b3d/embed"
+                      >
+                      </iframe>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="idx-3dcard-list iframe">
+                      <iframe
+                        title="Low Poly Animals"
+                        frameborder="0"
+                        allowfullscreen
+                        mozallowfullscreen="true"
+                        webkitallowfullscreen="true"
+                        allow="fullscreen; autoplay; vr"
+                        xr-spatial-tracking
+                        execution-while-out-of-viewport
+                        execution-while-not-rendered
+                        web-share
+                        src="https://sketchfab.com/models/85e7736541eb4ee3a0cdb381655a4b3d/embed"
+                      >
+                      </iframe>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="idx-3dcard-list iframe">
+                      <iframe
+                        title="Low Poly Animals"
+                        frameborder="0"
+                        allowfullscreen
+                        mozallowfullscreen="true"
+                        webkitallowfullscreen="true"
+                        allow="fullscreen; autoplay; vr"
+                        xr-spatial-tracking
+                        execution-while-out-of-viewport
+                        execution-while-not-rendered
+                        web-share
+                        src="https://sketchfab.com/models/85e7736541eb4ee3a0cdb381655a4b3d/embed"
+                      >
+                      </iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
             </section>
           </div>
         </div>

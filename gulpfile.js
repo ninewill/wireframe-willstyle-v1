@@ -51,36 +51,40 @@ function clean() {
 // *    接著把相對路徑「./」替換成空字串，「“」、「”」、「’」替換成「"」、「'」，輸出至 ./dist/en 資料夾
 // * ==========================================================================
 
-gulp.task('extend', function() {
-    return  gulp.src(['./ch/assets/*.html', '!ch/assets/page-1.html'])
-                .pipe(extender(PROCESS.extender))
-                .pipe(replace('./page-1.html', '../index.html'))
-                .pipe(replace('"./', '"'))
-                .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist/ch/')),
-            gulp.src('./ch/assets/page-1.html')
-                .pipe(extender(PROCESS.extender))
-                .pipe(replace('./page-1.html', 'index.html'))
-                .pipe(replace('./sitemap.html', 'ch/sitemap.html'))
-                .pipe(replace('./page-', 'ch/page-'))
-                .pipe(replace('../', ''))
-                .pipe(replace('href="common', 'href="./common'))
-                .pipe(rename({basename: 'index'}))
-                .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist')),
-            gulp.src('./en/assets/*.html')
-                .pipe(extender(PROCESS.extender))
-                .pipe(replace('"./', '"'))
-                .pipe(replace('“', '"'))
-                .pipe(replace('”', '"'))
-                .pipe(replace('’', "'"))
-                .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist/en')),
-            gulp.src('./jp/assets/*.html')
-                .pipe(extender(PROCESS.extender))
-                .pipe(replace('"./', '"'))
-                .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist/jp'))
+// gulp.task('extend', function() {
+//     return  gulp.src(['./ch/assets/*.html', '!ch/assets/page-1.html'])
+//                 .pipe(extender(PROCESS.extender))
+//                 .pipe(replace('./page-1.html', '../index.html'))
+//                 .pipe(replace('"./', '"'))
+//                 .pipe(htmlmin(PROCESS.htmlmin))
+//                 .pipe(gulp.dest('./dist/ch/')),
+//             gulp.src('./ch/assets/page-1.html')
+//                 .pipe(extender(PROCESS.extender))
+//                 .pipe(replace('./page-1.html', 'index.html'))
+//                 .pipe(replace('./sitemap.html', 'ch/sitemap.html'))
+//                 .pipe(replace('./page-', 'ch/page-'))
+//                 .pipe(replace('../', ''))
+//                 .pipe(replace('href="common', 'href="./common'))
+//                 .pipe(rename({basename: 'index'}))
+//                 .pipe(htmlmin(PROCESS.htmlmin))
+//                 .pipe(gulp.dest('./dist')),
+//             gulp.src('./en/assets/*.html')
+//                 .pipe(extender(PROCESS.extender))
+//                 .pipe(replace('"./', '"'))
+//                 .pipe(replace('“', '"'))
+//                 .pipe(replace('”', '"'))
+//                 .pipe(replace('’', "'"))
+//                 .pipe(htmlmin(PROCESS.htmlmin))
+//                 .pipe(gulp.dest('./dist/en')),
+//             gulp.src('./jp/assets/*.html')
+//                 .pipe(extender(PROCESS.extender))
+//                 .pipe(replace('"./', '"'))
+//                 .pipe(htmlmin(PROCESS.htmlmin))
+//                 .pipe(gulp.dest('./dist/jp'))
+// });
+
+gulp.task("extend",  function() {
+  return gulp.src("./assets/*.html").pipe(extender(PROCESS.extender)).pipe(gulp.dest("./dist"))
 });
 
 // * ==========================================================================
