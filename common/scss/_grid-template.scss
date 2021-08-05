@@ -1,0 +1,327 @@
+@charset "UTF-8";
+@import './utils/_utils.scss';
+
+// * ==========================================================================
+// * grid版型
+// * ==========================================================================
+
+.page-fluid {
+  max-width: 2000px;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+
+  .row-work {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    // grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 1rem;
+
+
+    @include min-width(map-get($tablet, sm)) {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    @include min-width(map-get($desktop, lg)) {
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    }
+
+    @include min-width(map-get($desktop, xl)) {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+
+
+
+
+
+    li {
+      width: 100%;
+      height: 285px;
+
+      @include min-width(map-get($desktop, lg)) {
+        width: 330px;
+        height: 250px;
+      }
+
+      @include min-width(map-get($desktop, xl)) {
+        width: 365px;
+        height: 285px;
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+  }
+  .grid__item {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+
+  //Img Hover Start
+  .image__hover {
+    background-color: $color-white;
+    color: $color-white;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 16px;
+    margin: 10px;
+    width: 365px;
+    height: 285px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    transform: translateZ(0);
+
+    @include max-width(map-get($tablet, md)) {
+      max-width: 100%;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: '';
+      background-color: #000;
+      opacity: 0.3;
+      transition: all 0.45s ease;
+    }
+
+    &:before {
+      transform: skew(30deg) translateX(-60%);
+
+      @include min-width(map-get($desktop, sm)) {
+        transform: skew(30deg) translateX(-80%);
+        transition-delay: 0.05s;
+      }
+    }
+
+    &:after {
+      transform: skew(-30deg) translateX(-30%);
+
+      @include min-width(map-get($desktop, sm)) {
+        transform: skew(-30deg) translateX(-70%);
+        transition-delay: 0.05s;
+      }
+    }
+
+    > figcaption {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      z-index: 1;
+      bottom: 0;
+      padding: 25px 20% 25px 20px;
+
+      &:before,
+      &:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        content: '';
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      &:before {
+        transform: skew(30deg) translateX(-20%);
+
+        @include min-width(map-get($desktop, sm)) {
+          transform: skew(30deg) translateX(-100%);
+          transition-delay: 0.05s;
+        }
+      }
+      &:after {
+        transform: skew(-30deg) translateX(-30%);
+
+        @include min-width(map-get($desktop, sm)) {
+          transform: skew(-30deg) translateX(-90%);
+          transition-delay: 0.1s;
+        }
+      }
+
+      > h3 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        line-height: 1.6em;
+        text-transform: uppercase;
+        color: $color-white;
+
+        @include min-width(map-get($desktop, sm)) {
+          margin: 0;
+          opacity: 0;
+          letter-spacing: 1px;
+        }
+      }
+
+      > p {
+        font-size: 0.9em;
+        margin-top: 1rem;
+        line-height: 2em;
+        color: $color-white;
+        @include txt-overflows;
+
+        @include min-width(map-get($desktop, sm)) {
+          margin: 0;
+          opacity: 0;
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    @include min-width(map-get($desktop, sm)) {
+      &:hover {
+
+        &:before {
+          transform: skew(30deg) translateX(-60%);
+        }
+    
+        &:after {
+          transform: skew(-30deg) translateX(-30%);
+        }
+
+        figcaption {
+          &:before {
+            transform: skew(30deg) translateX(-40%);
+            transition-delay: 0.15s;
+          }
+          &::after {
+            transform: skew(-30deg) translateX(-10%);
+          }
+        }
+
+        h3 {
+          transform: translateY(0);
+          opacity: 0.9;
+          transition-delay: 0.2s;
+        }
+      }
+    }
+  }
+
+  .image__hover *,
+  .image__hover *:before,
+  .image__hover *:after {
+    box-sizing: border-box;
+    transition: all 0.45s ease;
+  }
+
+  .image__hover:hover h3,
+  .image__hover.hover h3,
+  .image__hover:hover p,
+  .image__hover.hover p {
+    transform: translateY(0);
+    opacity: 0.9;
+    transition-delay: 0.2s;
+  }
+
+  //Img Hover End
+
+  .grid--layout-1 li:first-child {
+    // grid-area: 11 / 1 / 17 / 6;
+    background-image: url('../../common/images/index-img/index_img01.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(2) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img03.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(3) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img10.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(4) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img06.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(5) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img11.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(6) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img08.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(7) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img07.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(8) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img09.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(9) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img02.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(10) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img04.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(11) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img05.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(12) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img12.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(13) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img13.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(14) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img14.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(15) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img15.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(16) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img16.png');
+    background-color: rgb(107, 107, 107);
+  }
+  .grid--layout-1 li:nth-child(17) {
+    // grid-area: 22 / 7 / 27 / 12;
+    background-image: url('../../common/images/index-img/index_img17.png');
+    background-color: rgb(107, 107, 107);
+  }
+}

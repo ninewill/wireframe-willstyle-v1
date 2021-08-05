@@ -7,7 +7,7 @@
 
 // section1
 .idx-a1-s1 {
-  background-color: $color-gray-9;
+  background-color: $color-white;
 }
 .idx-cont100 {
   padding: 0 100px;
@@ -152,6 +152,21 @@
           transition: all 0.5s;
         }
       }
+    }
+  }
+}
+
+.web-works-wrap2{
+  > li {
+    width: calc((100% - 60px) / 4);
+    margin: 0 20px 0 0;
+
+    &:nth-of-type(3n) {
+      margin-right: 20px;
+    }
+
+    &:nth-of-type(4n) {
+      margin-right: 0;
     }
   }
 }

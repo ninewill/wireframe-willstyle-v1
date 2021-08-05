@@ -72,6 +72,15 @@
   text-overflow: ellipsis;
 }
 
+// * 多行文字溢出
+@mixin txt-overflows {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 // * 搜尋欄清除按鈕
 @mixin search-placeholder {
   font: inherit;

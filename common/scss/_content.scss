@@ -1454,6 +1454,10 @@
   border-top: 1px solid $color-black;
   border-bottom: 1px solid $color-black;
 }
+.section-line-bottom{
+  position: relative;
+  border-bottom: 1px solid $color-black;
+}
 
 #section-1 {
   background-color: $color-white;
@@ -1480,112 +1484,6 @@
   @include txt-overflow;
 }
 
-
-// * ==========================================================================
-// * IE11 專區
-// * ==========================================================================
-
-@media all and (-ms-high-contrast: none) {
-  *::-ms-backdrop,
-  .research__block-list {
-    span {
-      display: none;
-    }
-  }
-
-  .active {
-    > span {
-      &::before {
-        display: none;
-      }
-    }
-    .ac-tag {
-      width: 4px;
-      height: 21px;
-      display: block;
-      position: absolute;
-      top: 0.45rem;
-      left: -0.8rem;
-      background-color: $color-red-1;
-    }
-  }
-
-  .breadcrumbs-item {
-    > li {
-      &::after {
-        content: '';
-        display: none;
-      }
-
-      .bread-tag {
-        width: 6px;
-        height: 12px;
-        display: block;
-        position: absolute;
-        top: 0.85rem;
-        right: -0.7813rem;
-        background-image: url('../images/icon/icon-right-arrow.svg');
-      }
-    }
-  }
-
-  .page-click1 {
-    &::after {
-      content: '';
-      display: none;
-    }
-  }
-
-  .previous-f {
-    background-image: url('../images/icon/icon-left-arrow2.svg');
-    background-position: 10% center;
-    background-repeat: no-repeat;
-  }
-
-  .previous-s {
-    background-image: url('../images/icon/icon-left-arrow.svg');
-    background-position: 10% center;
-    background-repeat: no-repeat;
-  }
-
-  .page-click2 {
-    &::before {
-      content: '';
-      display: none;
-    }
-  }
-  .next-f {
-    background-image: url('../images/icon/icon-right-arrow2.svg');
-    background-position: 90% center;
-    background-repeat: no-repeat;
-  }
-  .next-s {
-    background-image: url('../images/icon/icon-right-arrow.svg');
-    background-position: 90% center;
-    background-repeat: no-repeat;
-  }
-
-  .list-active {
-    color: $color-red-1;
-
-    &::before {
-      content: '';
-      display: none;
-    }
-
-    .list-active-tag {
-      width: 0;
-      height: 0;
-      display: block;
-      position: absolute;
-      top: 13px;
-      left: -20px;
-      border-style: solid;
-      border-width: 6px 0 6px 6px;
-      border-color: transparent transparent transparent $color-red-1;
-    }
-  }
-}
 
 //error page
 
