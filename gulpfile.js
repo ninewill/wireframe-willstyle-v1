@@ -96,6 +96,7 @@ const JS_PLUGINS = [
     './common/js/plugins/lazysizes.min.js',
     './common/js/plugins/lightgallery-all.min.js',
     './common/js/plugins/footable.js',
+    "./common/js/plugins/tilt.jquery.min.js",
     './common/js/plugins/swiper.min.js',
     "./common/js/plugins/jquery.mCustomScrollbar.min.js",
     "./common/js/plugins/gsap.min.js",

@@ -52,6 +52,35 @@
     }
   }
 
+  .banner-area{
+    position: relative;
+
+    .mc_ban_contianer{
+      position: absolute;
+      bottom: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      @include min-width(map-get($desktop, sm)) {
+        width: 85.652%;
+        max-width: 1360px;
+      }
+
+      .mc_inban_title{
+        font-size: 3.5rem;
+        color: $color-white;
+      }
+
+      >p{
+        font-size: 2rem;
+        line-height: 1.5;
+        color: #d0d0d0;
+        margin-top: 10px;
+      }
+    }
+  }
+
   .banner-static1 {
     width: 100%;
     height: 100%;

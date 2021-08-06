@@ -674,8 +674,12 @@ $(function () {
   });
 
   var swiper3dcard = new Swiper(".idx-3dcard-swiper", {
-    slidesPerView: 2,
+    slidesPerView: 3,
     spaceBetween: 30,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
