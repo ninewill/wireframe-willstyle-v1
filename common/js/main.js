@@ -16,7 +16,7 @@ $(function () {
    * 日夜間切換按鈕
    * ==========================================================================
    */
-  $('#switch').click(function () {
+  $('.switch').click(function () {
     let htmlClasses = document.querySelector('html').classList;
 
     if (localStorage.theme === 'dark') {
@@ -671,6 +671,10 @@ $(function () {
     mousewheelControl: true,
     keyboardControl: true,
     effect: 'fade',
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -854,7 +858,7 @@ $(function () {
 
   var menuBox = $('.menu-box');
   var menuContent = $('.menu-content ul li');
-  var menuGuid = $('.guid-area');
+  var menuGuid = $('.self-img');
   var menuWrap = $('.menu-mobile-btn');
   var open = false;
   var tl = new TimelineMax();
@@ -875,10 +879,12 @@ $(function () {
     if (open === false) {
       tl.play();
       $('body,html').addClass('add');
+      $('.menu-mobile-btn').addClass('menu-mobile-btn-close');
     }
     if (open === true) {
       tl.reverse();
       $('body,html').removeClass('add');
+      $('.menu-mobile-btn').removeClass('menu-mobile-btn-close');
     }
     open = !open;
   });

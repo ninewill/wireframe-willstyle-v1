@@ -20,6 +20,24 @@
     }
   }
 
+  .menu-mobile-btn-close{
+    width: $mainHeader-height;
+    height: $mainHeader-height;
+    display: block;
+    background: url("../images/icon/close.svg") no-repeat center/60%;
+    color: $color-black;
+
+    @include min-width(map-get($desktop, sm)) {
+      display: none;
+    }
+  }
+
+  .switch-mobile{
+    @include min-width(map-get($desktop, sm)) {
+      display: none;
+    }
+  }
+
   // * ==========================================================================
   // * MENU 選單
   // * ==========================================================================
@@ -33,7 +51,7 @@
     z-index: 500;
     top: 0;
     left: 0;
-    padding-top: 72px;
+    padding-top: 66px;
     background-color: $color-white;
 
     @include min-width(map-get($desktop, sm)) {

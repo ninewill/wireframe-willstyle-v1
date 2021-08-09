@@ -28,8 +28,8 @@
         </div> -->
     <a
       href="javascript:;"
-      id="switch"
       class="
+        switch
         h-10
         w-10
         flex
@@ -55,38 +55,54 @@
       </svg>
     </a>
   </div>
-  <a href="javascript:;" class="menu-mobile-btn" title="Menu Button"
-    >Menu Button</a
-  >
+  <div class="flex items-center lg:hidden">
+    <a
+      href="javascript:;"
+      class="
+        switch
+        switch-mobile
+        h-10
+        w-10
+        flex
+        justify-center
+        items-center
+        focus:outline-none
+        text-yellow-500
+      "
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+        ></path>
+      </svg>
+    </a>
+    <a href="javascript:;" class="menu-mobile-btn" title="Menu Button"
+      >Menu Button</a
+    >
+  </div>
 </div>
 <div class="menu-box">
   <div class="menu-content">
     <ul class="menu-content-item">
       <li class="has-children">
         <!-- 無分層改換a標籤  acnav__label-a -->
-        <a href="javascript:;" class="acnav__label-a">首頁</a>
+        <a href="index.html" class="acnav__label-a">首頁</a>
       </li>
       <li class="has-children">
-        <div class="acnav__label-m">網站作品</div>
-        <!-- start level 1 -->
-        <ul class="acnav__item acnav__list acnav__list--level2">
-          <li class="acnav__item-list">
-            <a title="" class="acnav__link--level2" href="./index.html#main"
-              >標題標題</a
-            >
-          </li>
-          <li class="acnav__item-list">
-            <a title="" class="acnav__link--level2" href="./標題標題.html#main"
-              >標題標題</a
-            >
-          </li>
-        </ul>
-        <!-- end level 1 -->
+        <a href="page-website-work.html" class="acnav__label-a">網站作品</a>
       </li>
       <li class="has-children">
-        <div class="acnav__label-m">3D作品</div>
-        <!-- start level 1 -->
-        <ul class="acnav__item acnav__list acnav__list--level2">
+        <a href="page-3d-work.html" class="acnav__label-a">3D作品</a>
+        <!-- <ul class="acnav__item acnav__list acnav__list--level2">
           <li class="acnav__item-list">
             <a title="" class="acnav__link--level2" href="./index.html#main"
               >標題標題</a
@@ -97,54 +113,41 @@
               >標題標題</a
             >
           </li>
-        </ul>
-        <!-- end level 1 -->
+        </ul> -->
       </li>
       <li class="has-children">
-        <!-- 無分層改換a標籤  acＦnav__label-a -->
-        <a href="javascript:;" class="acnav__label-a">生活奇趣</a>
+        <a href="page-nft.html" class="acnav__label-a">NFT創作</a>
       </li>
       <li class="has-children">
-        <div class="acnav__label-m">自傳</div>
-        <!-- start level 1 -->
-        <ul class="acnav__item acnav__list acnav__list--level2">
-          <li class="acnav__item-list">
-            <a title="" class="acnav__link--level2" href="./index.html#main"
-              >標題標題</a
-            >
-          </li>
-          <li class="acnav__item-list">
-            <a title="" class="acnav__link--level2" href="./index.html#main"
-              >標題標題</a
-            >
-          </li>
-        </ul>
-        <!-- end level 1 -->
+        <a href="page-self.html" class="acnav__label-a">自傳</a>
       </li>
       <li class="has-children">
-        <!-- 無分層改換a標籤  acnav__label-a -->
-        <a href="javascript:;" class="acnav__label-a">大事紀</a>
+        <a href="page-history.html" class="acnav__label-a">大事紀</a>
       </li>
 
-      <div class="guid-area">
-        <!-- Item 1 -->
+      <div class="self-img">
+        <img src="../../common/images/3dhuman-Salvator.png" alt="self" />
+      </div>
+
+      <!-- <div class="guid-area">
+  
         <a href="javascript:;" title="網站導覽">
           <div class="ac-sitemap ac-guid"></div>
           <div class="guid-name">網站導覽</div>
         </a>
 
-        <!-- Item 2 -->
+      
         <a href="javascript:;" title="整合查詢">
           <div class="ac-search ac-guid"></div>
           <div class="guid-name">整合查詢</div>
         </a>
 
-        <!-- Item 3 -->
+     
         <a href="javascript:;" title="回首頁" target="_blank">
           <div class="ac-npm ac-guid"></div>
           <div class="guid-name">回首頁</div>
         </a>
-      </div>
+      </div> -->
     </ul>
   </div>
 </div>

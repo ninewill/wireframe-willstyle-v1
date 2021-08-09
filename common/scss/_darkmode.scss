@@ -40,6 +40,30 @@
     }
   }
 
+  .menu-mobile-btn{
+    background: url("../images/icon/menu-white.svg") no-repeat center/70%;
+  }
+
+  .menu-mobile-btn-close{
+    background: url("../images/icon/close-white.svg") no-repeat center/60%;
+  }
+
+  .mainheader{
+    box-shadow: 0px 5px 7px rgba($color-white, 0.3);
+  }
+
+  .menu-content-item{
+    background-color: $color-black;
+  }
+  .menu-content-item{
+    >li{
+      color: $color-white;
+      >a{
+        color: $color-white;
+      }
+    }
+  }
+
   // * nav
   .nav {
     @include min-width(map-get($desktop, sm)) {
