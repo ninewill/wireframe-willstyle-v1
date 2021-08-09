@@ -11,10 +11,6 @@
     position: relative;
     padding-top: 66px;
 
-    @include min-width(767px) {
-      padding-top: 72px;
-    }
-
     @include min-width(map-get($desktop, sm)) {
       padding-top: 0;
     }

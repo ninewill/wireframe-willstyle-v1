@@ -1435,8 +1435,8 @@
 // * ==========================================================================
 
 .section {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   outline: none;
 
   &:first-child{
@@ -1444,7 +1444,8 @@
   }
 
   @include min-width(map-get($desktop, sm)) {
-
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -1506,9 +1507,13 @@
 }
 
 .logo {
-  width: 250px;
-  height: 53px;
+  width: 200px;
+  height: 50px;
   position: relative;
+
+  @include min-width(map-get($desktop, sm)) {
+    width: 250px;
+  }
 }
 
 .logo > a {

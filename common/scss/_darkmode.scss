@@ -4,7 +4,8 @@
 .dark {
   // * LOGO
   .logo > a {
-    background: url(../images/wireframe-logo-white-v1.png) no-repeat center/contain;
+    background: url(../images/wireframe-logo-white-v1.png) no-repeat
+      center/contain;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 500ms;
   }
@@ -54,15 +55,108 @@
     }
   }
 
+  // * section line
+  .section-line {
+    border-top: 1px solid $color-white;
+    border-bottom: 1px solid $color-white;
+  }
+
+  .idx-a1-s1 {
+    background-color: $color-black;
+  }
+
+  .idx-a1-hd {
+    h2 {
+      color: $color-white;
+    }
+  }
+  .idx-a1-more {
+    span {
+      color: $color-white;
+    }
+    svg {
+      path {
+        color: $color-white;
+      }
+    }
+  }
+
+  // * work card
+  .idx-a1s1-li {
+    .idx-a1s1-date {
+      svg {
+        path {
+          color: $color-white;
+        }
+      }
+      span {
+        color: $color-white;
+      }
+    }
+    .idx-a1s1-txt {
+      color: $color-white;
+    }
+  }
+  .web-works-wrap{
+    >li{
+      >a{
+        @include min-width(map-get($desktop, sm)) {
+          .idx-a1s1-morebtn {
+            background: $color-white;
+            border: 1px solid $color-white;
+            color: $color-black;
+          }
+
+          &:hover {
+            box-shadow: 15px 9px 14px 2px rgb(48, 48, 48);
+  
+            .idx-a1s1-morebtn {
+              color: $color-white;
+              background: $color-black;
+            }
+          }
+        }
+
+        .idx_list_imgbox {
+          &::before {
+            @include min-width(map-get($desktop, sm)) {
+              background: #3e3e3e;
+            }
+          }
+          &::after {
+            @include min-width(map-get($desktop, sm)) {
+              background: $color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //3d work title
+  .ma_b1s1_title{
+    color: $color-white;
+
+    &::before {
+      background-color: $color-white;
+    }
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  
+
+
   // * Footer
   .footer-logo {
     background-image: url('../images/wireframe-logo-white-v1.png');
   }
 
-  .footer-info{
-    >p{
+  .footer-info {
+    > p {
       color: $color-white;
-      >span{
+      > span {
         color: $color-white;
       }
     }

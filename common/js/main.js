@@ -710,6 +710,12 @@ $(function () {
   var swiper3dcard = new Swiper(".idx-3dcard-swiper", {
     slidesPerView: 3,
     spaceBetween: 30,
+    breakpoints: {
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 1,
+      }
+    },
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,

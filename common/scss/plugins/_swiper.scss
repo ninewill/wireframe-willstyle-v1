@@ -27,9 +27,12 @@
 }
 
 .idx-3dcard-swiper{
-  height: 500px;
   display: flex;
   align-items: center;
+
+  @include min-width(map-get($desktop, sm)) {
+    height: 500px;
+  }
 }
 
 .swiper-container-no-flexbox .swiper-slide {
@@ -326,6 +329,7 @@
 }
 
 .swiper-pagination {
+  display: none;
   position: absolute;
   text-align: center;
   -webkit-transition: 300ms opacity;
@@ -334,6 +338,10 @@
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   z-index: 10;
+
+  @include min-width(map-get($desktop, sm)) {
+    display: block;
+  }
 }
 
 .swiper-pagination.swiper-pagination-hidden {

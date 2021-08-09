@@ -397,22 +397,33 @@
 
   .ma_a1s1_title {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     padding: 1rem 2rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 
     &::before {
       content: '';
       background: url('../../common/images/icon/text-highlight.png') no-repeat
         center center;
-      background-size: 100% 60px;
-      width: 108%;
+      background-size: 100% 50px;
+      width: 100%;
       height: 100%;
       display: block;
       position: absolute;
+      top: 0;
+      left: 0;
       z-index: -1;
       transform: translate(-3%, 0);
+    }
+
+    @include min-width(map-get($desktop, sm)) {
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+
+      &::before {
+        background-size: 100% 60px;
+      }
     }
   }
 

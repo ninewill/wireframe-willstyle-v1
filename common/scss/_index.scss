@@ -123,10 +123,14 @@
       .idx-a1s1-txt {
         height: 68px;
         overflow: hidden;
-        margin-bottom: 60px;
+        margin-bottom: 1rem;
         color: $color-black;
         line-height: 34px;
         font-size: 1.5rem;
+
+        @include min-width(map-get($desktop, sm)) {
+          margin-bottom: 60px;
+        }
       }
       .idx-a1s1-morebtn {
         border-radius: 30px;
