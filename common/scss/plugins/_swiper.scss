@@ -17,9 +17,6 @@
  * Released on: February 22, 2019
  */
 .swiper-container {
-  height: 500px;
-  display: flex;
-  align-items: center;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -27,6 +24,12 @@
   padding: 0;
   /* Fix of Webkit flickering */
   z-index: 1;
+}
+
+.idx-3dcard-swiper{
+  height: 500px;
+  display: flex;
+  align-items: center;
 }
 
 .swiper-container-no-flexbox .swiper-slide {
@@ -93,6 +96,7 @@
 
   > img {
     width: 100%;
+    height: 100%;
   }
 }
 
@@ -267,8 +271,8 @@
   top: 50%;
   width: 40px;
   height: 104px;
-  margin-top: -22px;
-  background-color: rgba(0, 0, 0, 0.8);
+  margin-top: -52px;
+  background-color: #3cffc4d0;
   z-index: 10;
   cursor: pointer;
   background-size: 27px 44px;
@@ -398,7 +402,7 @@
   width: 45px;
   height: 5px;
   display: inline-block;
-  background: #000;
+  background: #3cffc6;
   opacity: 0.2;
 }
 
@@ -419,7 +423,7 @@ button.swiper-pagination-bullet {
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #707070;
+  background: #3cffc6;
 }
 
 .swiper-container-vertical > .swiper-pagination-bullets {

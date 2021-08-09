@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@import './utils/_utils.scss';
+
+// * ==========================================================================
+// * 卡片元件
+// * ==========================================================================
+
+.idx-3dcard-list {
+
+
+  >a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transform-style: preserve-3d;
+
+    >figure{
+      img{
+        border-radius: 10px;
+      }
+    }
+  
+    .idx-3dcard-list-title{
+      position: absolute;
+      bottom: 50px;
+      font-size: 1.3rem;
+      color: $color-white;
+      transform: translateZ(50px);
+    }
+  }
+}
