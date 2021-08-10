@@ -6,9 +6,7 @@
 // * ==========================================================================
 
 .idx-3dcard-list {
-
-
-  >a{
+  > a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -16,18 +14,43 @@
     position: relative;
     transform-style: preserve-3d;
 
-    >figure{
-      img{
+    > figure {
+      img {
         border-radius: 10px;
       }
     }
-  
-    .idx-3dcard-list-title{
+
+    .idx-3dcard-list-title {
       position: absolute;
       bottom: 50px;
       font-size: 1.3rem;
       color: $color-white;
       transform: translateZ(50px);
     }
+  }
+}
+
+.sketchfab-wrap{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.sketchfab-list {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  @include min-width(map-get($desktop, sm)) {
+    width: 49%;
+  }
+}
+
+.sketchfab-list-card-title{
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+
+  @include min-width(map-get($desktop, sm)) {
+    margin-bottom: 1rem;
+    font-size: 2rem;
   }
 }

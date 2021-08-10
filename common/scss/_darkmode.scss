@@ -123,14 +123,15 @@
   }
   .web-works-wrap{
     >li{
+        border: 1px solid $color-white;
       >a{
-        @include min-width(map-get($desktop, sm)) {
-          .idx-a1s1-morebtn {
-            background: $color-white;
-            border: 1px solid $color-white;
-            color: $color-black;
-          }
+        .idx-a1s1-morebtn {
+          background: $color-white;
+          border: 1px solid $color-white;
+          color: $color-black;
+        }
 
+        @include min-width(map-get($desktop, sm)) {
           &:hover {
             box-shadow: 15px 9px 14px 2px rgb(48, 48, 48);
   
