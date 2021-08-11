@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import './utils/_utils.scss';
+
+// * ==========================================================================
+// * about
+// * ==========================================================================
+
+.about{
+  .about-title{
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  p{
+    margin-bottom: 1rem;
+  }
+  .about-figure{
+    margin-bottom: 1rem;
+
+    >img{
+      margin-left: 0 !important;
+    }
+  }
+}

@@ -48,11 +48,12 @@
 
 .sketchfab-list-card-title {
   margin-bottom: 0.5rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 
   @include min-width(map-get($desktop, sm)) {
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
