@@ -510,7 +510,7 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-  background: #007aff;
+  background: #3cffc6;
   position: absolute;
   left: 0;
   top: 0;
@@ -536,9 +536,9 @@ button.swiper-pagination-bullet {
 .swiper-container-vertical
   > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
   width: 100%;
-  height: 4px;
+  height: 2px;
   left: 0;
-  top: 0;
+  bottom: 0px;
 }
 
 .swiper-container-vertical > .swiper-pagination-progressbar,

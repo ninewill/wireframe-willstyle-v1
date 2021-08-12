@@ -734,6 +734,31 @@ $(function () {
     },
   });
 
+  var swiperhistory = new Swiper(".swiper-history", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    breakpoints: {
+      // when window width is >= 640px
+      768: {
+        slidesPerView: 1,
+      },
+      960: {
+        slidesPerView: 2,
+      },
+      1280: {
+        slidesPerView: 3,
+      }
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "progressbar",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
   /*
    * ==========================================================================
    * 無障礙跳過此子選單列按鈕
@@ -1017,7 +1042,7 @@ $(function () {
    * 瀏覽器 custom Scroll plugin
    * ==========================================================================
    */
-  $('.research__list-scroll').mCustomScrollbar({
+  $('.txt-scroll').mCustomScrollbar({
     axis: 'y', // horizontal scrollbar
     theme: 'dark-2', //theme
   });

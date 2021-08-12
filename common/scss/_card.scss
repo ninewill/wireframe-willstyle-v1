@@ -112,3 +112,43 @@
     font-size: 1rem;
   }
 }
+
+// 發展歷程
+.swiper-wrapper-history{
+  padding-bottom: 2rem;
+}
+.mc_d2s2_lisbox {
+  padding: 0 1rem;
+  
+  @include min-width(map-get($tablet, sm)) {
+    border-right: 1px solid #e5e5e5;
+  }
+
+  @include min-width(map-get($desktop, sm)) {
+    height: 480px;
+    padding: 0 2rem;
+  }
+
+  .mc_d2s2_year {
+    margin-bottom: 45px;
+    font-weight: bold;
+    font-size: 1.875rem;
+    color: #3cffc6;
+
+    @include min-width(map-get($desktop, sm)) {
+      font-size: 3rem;
+    }
+  }
+
+  .mc_d2s2_txt{
+    >p{
+      font-size: 0.875rem;
+      line-height: 30px;
+      color: #666666;
+
+      @include min-width(map-get($desktop, sm)) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
