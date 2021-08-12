@@ -1,6 +1,6 @@
-# wireframe3dp-web
+# wireframewill-web
 
-wireframe3dp-web
+wireframewill-web
 
 First install dependencies:
 
