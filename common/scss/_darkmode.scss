@@ -2,12 +2,21 @@
 @import './utils/_utils.scss';
 
 .dark {
+  body{
+    background-color: $color-black;
+  }
+  .mainheader{
+    background-color: $color-black;
+  }
   // * LOGO
   .logo > a {
     background: url(../images/wireframe-logo-white-v1.png) no-repeat
       center/contain;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 500ms;
+  }
+  .my-name{
+    color: $color-white;
   }
   // * 網站導覽
   .sitemap-btn {
