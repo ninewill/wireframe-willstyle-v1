@@ -2,10 +2,10 @@
 @import './utils/_utils.scss';
 
 .dark {
-  body{
+  body {
     background-color: $color-black;
   }
-  .mainheader{
+  .mainheader {
     background-color: $color-black;
   }
   // * LOGO
@@ -15,7 +15,7 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 500ms;
   }
-  .my-name{
+  .my-name {
     color: $color-white;
   }
   // * 網站導覽
@@ -49,25 +49,25 @@
     }
   }
 
-  .menu-mobile-btn{
-    background: url("../images/icon/menu-white.svg") no-repeat center/70%;
+  .menu-mobile-btn {
+    background: url('../images/icon/menu-white.svg') no-repeat center/70%;
   }
 
-  .menu-mobile-btn-close{
-    background: url("../images/icon/close-white.svg") no-repeat center/60%;
+  .menu-mobile-btn-close {
+    background: url('../images/icon/close-white.svg') no-repeat center/60%;
   }
 
-  .mainheader{
+  .mainheader {
     box-shadow: 0px 5px 7px rgba($color-white, 0.3);
   }
 
-  .menu-content-item{
+  .menu-content-item {
     background-color: $color-black;
   }
-  .menu-content-item{
-    >li{
+  .menu-content-item {
+    > li {
       color: $color-white;
-      >a{
+      > a {
         color: $color-white;
       }
     }
@@ -83,8 +83,8 @@
       > li {
         > a {
           color: $color-white;
-          
-          &.open{
+
+          &.open {
             color: $color-black;
             background-color: $color-white;
           }
@@ -96,6 +96,10 @@
   // * section line
   .section-line {
     border-top: 1px solid $color-white;
+    border-bottom: 1px solid $color-white;
+  }
+
+  .section-line-bottom {
     border-bottom: 1px solid $color-white;
   }
 
@@ -137,10 +141,10 @@
       color: $color-white;
     }
   }
-  .web-works-wrap{
-    >li{
-        border: 1px solid $color-white;
-      >a{
+  .web-works-wrap {
+    > li {
+      border: 1px solid $color-white;
+      > a {
         .idx-a1s1-morebtn {
           background: $color-white;
           border: 1px solid $color-white;
@@ -150,7 +154,7 @@
         @include min-width(map-get($desktop, sm)) {
           &:hover {
             box-shadow: 15px 9px 14px 2px rgb(48, 48, 48);
-  
+
             .idx-a1s1-morebtn {
               color: $color-white;
               background: $color-black;
@@ -175,7 +179,7 @@
   }
 
   //3d work title
-  .ma_b1s1_title{
+  .ma_b1s1_title {
     color: $color-white;
 
     &::before {
@@ -186,32 +190,42 @@
       background-color: $color-white;
     }
   }
-  .sketchfab-list-card-title{
+  .sketchfab-list-card-title {
     color: $color-white;
   }
-  
+  .home {
+    .titles {
+      .page-title {
+        color: $color-gray-8;
+      }
+
+      .page-subtitle {
+        color: $color-gray-8;
+      }
+    }
+  }
+
   //about
 
-  .about{
-    .about-title{
+  .about {
+    .about-title {
       color: $color-white;
     }
-    p{
+    p {
       color: $color-white;
     }
   }
 
-  .mc_d2s2_txt{
-    >p{
+  .mc_d2s2_txt {
+    > p {
       color: $color-white;
     }
   }
 
   //history
-  .page-works-title{
+  .page-works-title {
     color: $color-white;
   }
-
 
   // * Footer
   .footer-logo {

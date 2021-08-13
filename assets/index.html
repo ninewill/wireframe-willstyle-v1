@@ -171,7 +171,52 @@
               <div class="flex justify-start w-full">
                 <h3 class="ma_a1s1_title bg-light-green">3D作品</h3>
               </div>
-              <div class="sketchfab-embed-wrapper iframe">
+              <div class="home page show">
+                <div class="titles">
+                  <div class="page-title">Warp Driving</div>
+                  <div class="page-subtitle">Design | Develop | Motion</div>
+                </div>
+              </div>
+              <canvas id="blob" class="blob"></canvas>
+              <div class="controls">
+                <div>
+                  <!-- 速度 -->
+                  <label>Speed</label>
+                  <input
+                    type="range"
+                    min="10"
+                    max="120"
+                    value="60"
+                    step="1"
+                    name="speed"
+                  />
+                </div>
+                <div>
+                  <!-- 尖刺 -->
+                  <label>Spikes</label>
+                  <input
+                    type="range"
+                    min=".05"
+                    max="2"
+                    value=".6"
+                    step=".05"
+                    name="spikes"
+                  />
+                </div>
+                <div>
+                  <!-- 處理 -->
+                  <label>Processing</label>
+                  <input
+                    type="range"
+                    min=".6"
+                    max="2.4"
+                    value="1"
+                    step=".01"
+                    name="processing"
+                  />
+                </div>
+              </div>
+              <!-- <div class="sketchfab-embed-wrapper iframe">
                 <iframe
                   title="CouragePeople"
                   frameborder="0"
@@ -186,14 +231,24 @@
                   src="https://sketchfab.com/models/c236b14fe0d24d98875a8dbcfe3ef9ef/embed"
                 >
                 </iframe>
-              </div>
+              </div> -->
               <div class="flex justify-end">
-                <a
-                  href="page-3d-work.html"
-                  class="btn-default btn-with-arrow"
-                >
+                <a href="page-3d-work.html" class="btn-default btn-with-arrow">
                   <span>看更多</span>
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
                 </a>
               </div>
             </section>

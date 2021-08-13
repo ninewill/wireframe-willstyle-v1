@@ -100,7 +100,12 @@ const JS_PLUGINS = [
     './common/js/plugins/swiper.min.js',
     "./common/js/plugins/jquery.mCustomScrollbar.min.js",
     "./common/js/plugins/gsap.min.js",
-    './common/js/*.js'
+    "./common/js/plugins/range.js",
+    "./common/js/plugins/three.min.js",
+    "./common/js/plugins/OrbitControls.js",
+    "./common/js/plugins/simplex-noise.min.js",
+    './common/js/*.js',
+    "./common/js/index3d.js",
 ];
 
 // * ==========================================================================
